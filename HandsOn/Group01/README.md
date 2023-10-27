@@ -2,8 +2,8 @@
 
 | Full Name                       | Github User            |    
 | ------------------------------- | ---------------------- |     
-| Fernández Sánchez, Sergio       | sergiofernandezsanchez |         | 
+| Fernández Sánchez, Sergio       | sergiofernandezsanchez |         
 | Guzmán González, Alicia         | alicia-guzman          | 
-| ILLANA GUERRA, FÁTIMA FUCHUN    | Fatima-Illana          | 
+| Sierra Gil, Maria del Mar       | Mariadelmarsierra      | 
 | NUÑEZ SILVA, LUIS ANTONIO       | Lans05                 | 
-| SÁNCHEZ FERNÁNDEZ, RUBÉN        | rubykoom               |
+
