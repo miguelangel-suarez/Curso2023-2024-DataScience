@@ -5,5 +5,5 @@
 | Fernández Sánchez, Sergio       | sergiofernandezsanchez |         
 | Guzmán González, Alicia         | alicia-guzman          | 
 | Sierra Gil, Maria del Mar       | Mariadelmarsierra      | 
-| NUÑEZ SILVA, LUIS ANTONIO       | Lans05                 | 
+| Suárez Ucieda, Miguel Ángel     | miguelangel-suarez     | 
 
