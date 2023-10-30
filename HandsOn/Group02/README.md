@@ -1,4 +1,4 @@
-# GROUP02 MEMBERS 
+# GROUP 02 MEMBERS 
 
 | Full Name                       | Github User            |    
 | ------------------------------- | ---------------------- |     
