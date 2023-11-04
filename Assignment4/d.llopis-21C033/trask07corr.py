@@ -15,68 +15,125 @@ Primero leemos el grafo
 
 !pip install rdflib
 github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2023-2024/master/Assignment4/course_materials"
+
+
 from rdflib import Graph, Namespace, Literal
 from rdflib.namespace import RDF, RDFS
 g = Graph()
 g.namespace_manager.bind('ns', Namespace("http://somewhere#"), override=False)
 g.namespace_manager.bind('vcard', Namespace("http://www.w3.org/2001/vcard-rdf/3.0#"), override=False)
 g.parse(github_storage+"/rdf/example6.rdf", format="xml")
-from rdflib.plugins.sparql import prepareQuery
+
 ns = Namespace("http://somewhere#")
-rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 
 """7.1: List all subclasses of "LivingThing" with RDFLib and SPARQL"""
 
 # TO DO
-q1 = """
-    SELECT ?subclass
-    WHERE {
-        ?subclass rdfs:subClassOf ns:LivingThing .
-    }
-"""
+from rdflib.plugins.sparql import prepareQuery
+
+livingThing_query = prepareQuery('''
+SELECT ?subClase
+WHERE {
+    ?subClase rdfs:subClassOf ns:LivingThing
+}
+''',
+initNs = { "rdfs": RDFS, "ns": ns}
+)
 # Visualize the results
 
-for r in g.query(q1):
-  print(r)
+for r in g.query(livingThing_query):
+  print(r.subClase)
+
+
+# Create a set to store the subclasses
+subclasses = set()
+
+# Iterate through the triples in the graph
+for subject, predicate, object_ in g.triples((None, RDF.type, RDFS.Class)):
+    for sub, _, sup in g.triples((None, RDFS.subClassOf, subject)):
+        if sup == ns.LivingThing:
+            subclasses.add(sub)
+
+# Print the subclasses of LivingThing
+for subclass in subclasses:
+    print(subclass)
 
 """ 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)"""
 
 # TO DO
-q2 = """
-    SELECT ?individual
-    WHERE {
-        ?individual rdf:type/rdfs:subClassOf* ns:Person .
-    }
-"""
+
+person_query = prepareQuery('''
+SELECT ?individual
+WHERE {
+    ?individual rdf:type/rdfs:subClassOf* ns:Person .
+}
+''',
+initNs = { "rdf": RDF, "rdfs": RDFS, "ns": ns}
+)
+
 # Visualize the results
-for r in g.query(q2):
-    print(r)
+
+
+for r in g.query(person_query):
+  print(r.individual)
+
+
+# Create a set to store the individuals of "Person" and its subclasses
+individuals = set()
+
+# Create a set of classes to include "Person" and its subclasses
+classes_to_include = {ns.Person}
+
+# Find subclasses of "Person" and add them to the set of classes to include
+for subject, _, object_ in g.triples((None, RDFS.subClassOf, ns.Person)):
+    classes_to_include.add(subject)
+
+# Iterate through the triples in the graph
+for subject, predicate, object_ in g.triples((None, RDF.type, None)):
+    if object_ in classes_to_include:
+        individuals.add(subject)
+
+# Print the individuals of "Person" and its subclasses
+for individual in individuals:
+    print(individual)
 
 """7.3 List all individuals of "Person" or "Animal" and all their properties including their class with RDFLib and SPARQL. You do not need to list the individuals of the subclasses of person"""
 
-rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-q3 = prepareQuery('''
-    SELECT ?individual ?property ?x
-    WHERE {
-      {
-        ?individual rdf:type ns:LivingThing.
-        ?individual ?property ?x
-      } UNION {
-        ?individual rdf:type ?y.
-        ?individual ?property ?x.
-        ?y rdfs:subClassOf ns:LivingThing
-      }
-    }
-    ''',
-    initNs = {"rdfs": rdfs, "rdf": rdf, "ns": ns}
+# TO DO
+
+# Create a set to store the individuals of "Person" or "Animal"
+individuals = set()
+
+# Create a set of classes to include "Person" and "Animal"
+classes_to_include = {ns.Person, ns.Animal}
+
+for subject, predicate, object_ in g.triples((None, RDF.type, None)):
+    if object_ in classes_to_include:
+        individuals.add(subject)
+
+for individual in individuals:
+    print("Individual:", individual)
+    for s, p, o in g.triples((individual, None, None)):
+        print(f" Property: {p}, Value: {o}")
+
+query_3 = prepareQuery('''
+SELECT ?individual ?property ?value
+WHERE {
+     ?individual rdf:type/rdfs:subClassOf* ?class .
+     FILTER (?class = ns:Person || ?class = ns:Animal)
+     ?individual ?property ?value .
+}
+''',
+initNs = { "rdf": RDF, "rdfs": RDFS, "ns": ns}
 )
 
-for r in g.query(q3):
-  print(r)
+# Visualize the results
+
+for r in g.query(query_3):
+  print(r.individual, r.property, r.value)
 
 """ 7.4: List the name of the persons who know Rocky"""
 
-# TO DO
 q4 = """
     SELECT ?person
     WHERE {
@@ -91,15 +148,21 @@ for r in g.query(q4):
 """7.5: List the entities who know at least two other entities in the graph"""
 
 # TO DO
-q5 = """
-    SELECT ?person
-    WHERE {
-        ?person foaf:knows ?other1 .
-        ?person foaf:knows ?other2 .
-        FILTER (?other1 != ?other2)
-    }
-"""
+
+query_5 = prepareQuery('''
+SELECT ?entity ?relatedEntity
+WHERE {
+      ?entity foaf:knows ?relatedEntity .
+
+}
+GROUP BY ?entity
+HAVING (COUNT(DISTINCT ?relatedEntity) >= 2)
+
+''',
+initNs = { "foaf": FOAF , "ns" : ns, "vcard": VCARD}
+)
 
 # Visualize the results
-for r in g.query(q5):
-    print(r.person)
+
+for r in g.query(query_5):
+     print(r.entity)
