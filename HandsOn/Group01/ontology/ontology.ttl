@@ -29,6 +29,10 @@ ns:MedianSpeed a owl:Class ;
     rdfs:label "Median Speed" ;
     rdfs:subClassOf m3:Speed .
 
+ns:SpeedLimit a owl:Class ;
+    rdfs:label "Speed Limit" ;
+    rdfs:subClassOf m3:Speed .
+
 ns:StatTrak a owl:Class ;
     rdfs:label "Stat Trak" ;
     rdfs:subClassOf m3:SpeedSensor .
@@ -144,14 +148,14 @@ ns:Measurements a owl:Class ;
 ns:Traffic a owl:Class ;
     rdfs:label "Traffic" .
 
-m3:Speed a owl:Class ;
-    rdfs:label "Speed" .
-
 geo:Point a owl:Class ;
     rdfs:label "Point" .
 
 w3:TemporalEntity a owl:Class ;
     rdfs:label "Temporal Entity" .
+
+m3:Speed a owl:Class ;
+    rdfs:label "Speed" .
 
 m3:SpeedSensor a owl:Class ;
     rdfs:label "Speed Sensor" .
