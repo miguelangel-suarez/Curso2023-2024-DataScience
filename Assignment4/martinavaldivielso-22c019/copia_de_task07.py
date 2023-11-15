@@ -28,14 +28,24 @@ ns = Namespace("http://somewhere#")
 rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 
 print("RDFLib")
-for s,p,o in g.triples((None, RDFS.subClassOf, ns.LivingThing)):
-  print(s)
+def fun_subclasses(g,class_name):
+  subclasses = set()
+  for s,p,o in g.triples((None,RDF.type,RDFS.Class)):
+    if (s,RDFS.subClassOf,class_name) in g:
+      subclasses.add(s)
+      subclasses.update(fun_subclasses(g,s))
+  return subclasses
+subclasses_lt = fun_subclasses(g,ns.LivingThing)
+for subclass in subclasses_lt:
+  print(subclass)
+
+
 
 print("SPARQL")
 q1 = prepareQuery('''
     SELECT distinct ?subClass
     WHERE {
-      ?subClass rdfs:subClassOf ns:LivingThing
+      ?subClass rdfs:subClassOf* ns:LivingThing
     }
     ''',
     initNs = {"rdfs": rdfs, "ns": ns}
@@ -62,9 +72,9 @@ q2 = prepareQuery('''
     SELECT distinct ?individual
     WHERE {
       {
-        ?individual rdf:type ns:Person.
+        ?individual a ns:Person.
       } UNION {
-        ?x rdfs:subClassOf ns:Person.
+        ?x rdfs:subClassOf* ns:Person.
         ?individual rdf:type ?x
       }
     }
@@ -91,8 +101,13 @@ print("SPARQL")
 q3 = prepareQuery('''
     SELECT distinct ?individual ?property ?x
     WHERE {
-        ?y rdfs:subClassOf ns:LivingThing.
-        ?individual rdf:type ?y.
+        {
+          ?individual a ns:Person.
+        }
+        UNION
+        {
+          ?individual a ns:Animal.
+        }
         ?individual ?property ?x
     }
     ''',
@@ -130,12 +145,13 @@ for r in g.query(q4):
 """**Task 7.5: List the entities who know at least two other entities in the graph**"""
 
 print("RDFLib")
-lista = []
-entities = []
+count = {}
 for s, p, o in g.triples((None, FOAF.knows, None)):
-  if s in lista:
-    entities.append(s)
-  lista.append(s)
+  count[s] = count.get(s,0)+1
+entities = []
+for key, value in count.items():
+  if value >= 2:
+    entities.append(key)
 print(entities)
 
 print("SPARQL")
