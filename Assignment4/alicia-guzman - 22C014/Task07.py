@@ -34,9 +34,11 @@ ns = Namespace("http://somewhere#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 
 # with RDFlib
+subclass_LivingThing = []
 for s, p, o in g.triples((None, RDFS.subClassOf, ns.LivingThing)):
     print(s)
-
+    subclass_LivingThing += [s]
+    
 # with SPARQL
 q1 = prepareQuery('''
    SELECT ?Subject WHERE { 
@@ -47,9 +49,10 @@ q1 = prepareQuery('''
 )
 
 # Visualize the SPARQL results
+subclass_LivingThing2 = []
 for r in g.query(q1):
   print(r.Subject)
-
+  subclass_LivingThing2 += [r.Subject]
 
 # **TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
 # 
@@ -63,19 +66,16 @@ ns = Namespace("http://somewhere#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 
 # with RDFlib
+people = []
 for s, p, o in g.triples((None, RDF.type, ns.Person)):
     print(s)
-
+    people += [s]
+for s1, p1, o1 in g.triples((None, RDFS.subClassOf, ns.Person)):
+    print(s1)
+    people += [s1]
+    
 # with SPARQL
 q2 = prepareQuery('''
-   SELECT ?Subject WHERE { 
-        ?Subject rdf:type ns:Person .
-    } 
-    ''',
-    initNs = {"rdf": RDF, "ns": ns}
-)
-
-q3 = prepareQuery('''
    SELECT ?Subject WHERE { 
       ?Subject rdf:type ?person . 
       ?person rdfs:subClassOf ns:Person .
@@ -87,10 +87,6 @@ q3 = prepareQuery('''
 # Visualize the SPARQL results
 for r in g.query(q2):
   print(r.Subject)
-for r in g.query(q3):
-  print(r.Subject)
-
-# Visualize the results
 
 
 # **TASK 7.3: List all individuals of "Person" or "Animal" and all their properties including their class with RDFLib and SPARQL. You do not need to list the individuals of the subclasses of person**
@@ -105,7 +101,6 @@ ns = Namespace("http://somewhere#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 
 # with RDFlib
-
 for s,p,o in g.triples((None, RDF.type, ns.Person or ns.Animal)):
   for s2,p2,o2 in g.triples((s, None, None)):
     print(s2,p2)
@@ -119,7 +114,7 @@ for s,p,o in g.triples((None, RDFS.subClassOf, ns.Person or ns.Animal)):
 # with SPARQL
 q4 = prepareQuery('''
    SELECT ?Subject ?prop WHERE { 
-      ?Subject rdf:type ns:Person || ns:Animal .
+      ?Subject rdf:type ns:Animal .
       ?Subject ?prop ?value .
     } 
     ''',
@@ -129,7 +124,7 @@ q4 = prepareQuery('''
 q5 = prepareQuery('''
    SELECT ?Subject ?prop WHERE { 
       ?Subject rdf:type ?person .
-      ?person rdfs:subClassOf ns:Person || ns:Animal .
+      ?person rdfs:subClassOf ns:Animal .
       ?Subject ?prop ?value .
     } 
     ''',
@@ -154,21 +149,16 @@ ns = Namespace("http://somewhere#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 
 # with RDFlib
-from rdflib import  FOAF
-ns = Namespace("http://somewhere#")
-VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
-g.add((ns.Jown,VCARD.knows,FOAF.Person))
-for s, p, o in g:
-  print(s,p,o)
+know_Rocky = []
+for s, p, o in g.triples((None, FOAF.Knows, ns.Rocky)):
+    print(s)
+    know_Rocky += [s]
 
 # with SPARQL
 q6 = prepareQuery('''
-   SELECT ?personName WHERE { 
-        ?person a ns:Person ; ns:knows
-        ?otherPerson .
-        ?otherPerson ns:name "Rocky" .
-        ?person ns:name ?personName .
-        ?personName foaf:knows ns:RockySmith.
+   SELECT ?Subject WHERE { 
+        ?Subject rdf:type ?person .
+        ?person ns:knows "Rocky"
     } 
     ''',
     initNs = {"rdfs": RDFS, "rdf": RDF, "ns": ns}
@@ -191,19 +181,19 @@ ns = Namespace("http://somewhere#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 
 # with RDFlib
-from rdflib import  FOAF
-g.add((ns.Entity,FOAF.knows,ns.Entity1))
-g.add((ns.Entity,FOAF.knows,ns.Entity2))
-
-for s, p, o in g:
-  print(s,p,o)
+entities = []
+for s, p, o in g.triples((None, FOAF.Knows, ns.Entity1 and ns.Entity2)):
+    if (ns.Entity1 != ns.Entity2):
+        print(s)
+        entities += [s]
 
 # with SPARQL
 q7 = prepareQuery('''
    SELECT ?entity ?knownEntities WHERE { 
-        ?entity a ?class .
+        ?entity rdf:type ?class .
         ?entity ns:knows ?knownEntity1 .
         ?entity ns:knows ?knownEntity2 .
+    FILTER(?knownEntity2 != ?knownEntity1)
     } 
     ''',
     initNs = {"rdfs": RDFS, "rdf": RDF, "ns": ns}
