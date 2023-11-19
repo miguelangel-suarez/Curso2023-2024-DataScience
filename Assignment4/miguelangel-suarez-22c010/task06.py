@@ -63,8 +63,7 @@ for s, p, o in g:
 """**TASK 6.5: Add UPM as the university where John Smith works**"""
 
 g.add((ns.UPM, RDF.type, ns.University))
-g.add((VCARD.Works_at, RDF.type, RDFS.Datatype))
-g.add((ns.JohnSmith, VCARD.Works_at, ns.UPM))
+g.add((ns.JohnSmith, ns.works, ns.UPM))
 for s, p, o in g:
   print(s,p,o)
 
