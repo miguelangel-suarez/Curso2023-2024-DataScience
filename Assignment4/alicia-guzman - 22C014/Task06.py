@@ -82,6 +82,7 @@ for s, p, o in g:
 # TO DO
 ns = Namespace("http://somewhere#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
+g.add((ns.JaneSmith, VCARD.emailAddress, Literal("jane.smith@alumnos.upm.es")))
 g.add((ns.JaneSmith, VCARD.fullName, Literal("Jane Smith")))
 g.add((ns.JaneSmith, VCARD.given, Literal("Jane")))
 g.add((ns.JaneSmith, VCARD.familynames, Literal("Smith")))
@@ -99,7 +100,7 @@ for s, p, o in g:
 ns = Namespace("http://somewhere#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 g.add((ns.UPM,RDF.type,ns.University))
-g.add((ns.JohnSmith,VCARD.works,ns.UPM))
+g.add((ns.JohnSmith,VCARD.worksAt,ns.UPM))
 # Visualize the results
 for s, p, o in g:
   print(s,p,o)
