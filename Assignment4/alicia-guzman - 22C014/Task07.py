@@ -49,10 +49,8 @@ q1 = prepareQuery('''
 )
 
 # Visualize the SPARQL results
-subclass_LivingThing2 = []
 for r in g.query(q1):
   print(r.Subject)
-  subclass_LivingThing2 += [r.Subject]
 
 # **TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
 # 
@@ -191,9 +189,9 @@ for s, p, o in g.triples((None, FOAF.Knows, ns.Entity1 and ns.Entity2)):
 q7 = prepareQuery('''
    SELECT ?entity ?knownEntities WHERE { 
         ?entity rdf:type ?class .
-        ?entity ns:knows ?knownEntity1 .
-        ?entity ns:knows ?knownEntity2 .
-    FILTER(?knownEntity2 != ?knownEntity1)
+        ?entity ns:knows ?Entity1 .
+        ?entity ns:knows ?Entity2 .
+    FILTER(?Entity2 != ?Entity1)
     } 
     ''',
     initNs = {"rdfs": RDFS, "rdf": RDF, "ns": ns}
