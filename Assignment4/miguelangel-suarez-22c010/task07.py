@@ -29,11 +29,16 @@ from rdflib.plugins.sparql import prepareQuery
 ns = Namespace("http://somewhere#")
 vcard = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 """With RDFLib"""
-for s,p,o in g.triples((None, RDFS.subClassOf, ns.LivingThing)):
-  print(s)
+def list_subclass(x) -> None:
+    triplets = g.triples((None, RDFS.subClassOf, x))
+    if triplets is not None:
+        for s, p, o in tripletaResult:
+          print(s)
+          list_subclass(s)
+list_subclass(ns.LivingThing)
 
 """With SPARQL"""
-q1 = prepareQuery("SELECT ?x WHERE {?x rdfs:subClassOf ns:LivingThing}", initNs = {"rdfs":RDFS, "ns":ns})
+q1 = prepareQuery("SELECT ?x WHERE {?x rdfs:subClassOf* ns:LivingThing}", initNs = {"rdfs":RDFS, "ns":ns})
 
 for r in g.query(q1):
   print(r)
@@ -43,14 +48,19 @@ for r in g.query(q1):
 """
 
 """With RDFLib"""
-for persona, p, o in g.triples((None, RDF.type, ns.Person)):
-  print(persona)
-for subclase, p, o in g.triples((None,RDFS.subClassOf,ns.Person)):
-  for persona, p, o in g.triples((None,RDF.type,subclase)):
-    print(persona)
+def list_individuos(x) -> None:
+    instancia = g.triples((None, RDFS.type, x))
+    if instancia is not None:
+        for s, p, o in i:
+            print(s)
+    subclass = g.triples((None, RDFS.subClassOf, x))
+    if subclass is not None:
+        for s2, p2, o2 in subclass:
+            list_individuos(s2)
+list_individuos(ns.Person)
 
 """With SPARQL"""
-q1 = prepareQuery("SELECT ?x ?y WHERE {?x rdf:type/rdfs:subClassOf* ns:Person}", initNs = {"rdf":RDF, "ns":ns})
+q1 = prepareQuery("SELECT  DISTINCT ?x WHERE {?x rdf:type/rdfs:subClassOf* ns:Person}", initNs = {"rdf":RDF, "ns":ns})
 
 for r in g.query(q1):
   print(r)
@@ -60,9 +70,17 @@ for r in g.query(q1):
 """
 
 """With RDFLib"""
-for elem,p,o in g.triples((None, RDF.type, ns.Animal)):
-  for s,t,u in g.triples((elem,None,None)):
-    print(s,t,u)
+def ind_proper(x) ->None:
+    triplets = g.triples((None, RDF.type, objeto))
+    if triplets is not None:
+        for elem, p, o in triplets:
+            proper = g.triples((elem, None, None))
+            if proper is not None:
+                for s2, p2, o2 in proper:
+                    print(elem, p2, o2)
+
+ind_proper(ns.Person)
+ind_proper(ns.Animal)
 
 """With SPARQL"""
 q1 = prepareQuery('''
