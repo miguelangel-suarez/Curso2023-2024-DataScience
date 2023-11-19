@@ -86,8 +86,16 @@ ind_proper(ns.Animal)
 q1 = prepareQuery('''
     SELECT ?x ?relacion
     WHERE{
+    {
             ?x rdf:type ns:Animal.
-            ?x ?relacion ?a
+            ?x ?relacion ?o
+            }
+            UNION
+            {
+            ?x rdf:type ns:Person.
+            ?x ?relacion ?o
+            }
+
     }''', initNs = {"rdf": RDF, "ns": ns}
 )
 for r in g.query(q1):
@@ -97,17 +105,16 @@ for r in g.query(q1):
 
 """With RDFLib"""
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
-for persona,p,o in g.triples((None, RDF.type, ns.Person)):
-  for a,q,r in g.triples((None, FOAF.knows, persona)):
-    print(a)
+for persona,p,o in g.triples((None, FOAF.knows, ns.RockySmith)):
+    print(persona)
 
 """With SPARQL"""
 q1 = prepareQuery('''
-    SELECT DISTINCT ?x
+    SELECT DISTINCT ?nombre
     WHERE{
-            ?x rdf:type ns:Person.
-            ?x FOAF:knows ns:RockySmith
-    }''', initNs = {"rdf": RDF, "ns": ns, "FOAF":FOAF}
+            ?x FOAF:knows ns:RockySmith.
+            ?x <http://www.w3.org/2001/vcard-rdf/3.0/Given> ?nombre
+    }''', initNs = {"ns": ns, "FOAF":FOAF}
     )
 for r in g.query(q1):
   print(r)
@@ -115,20 +122,28 @@ for r in g.query(q1):
 """**Task 7.5: List the entities who know at least two other entities in the graph**"""
 
 """With RDFLib"""
+diccionario = {}
 lista = []
-lista_def = []
 for s,p,o in g.triples((None, FOAF.knows, None)):
-  if s in lista:
-    lista_def += [s]
-  lista += [s]
-print(lista_def)
+  if s in diccionario:
+    diccionario[s] += 1
+  else:
+    diccionario[s] = 0
+for clave, valor in diccionario.items():
+    if valor >= 2:
+        lista.append(clave)
+print(lista)
 
 """With SPARQL"""
 q1 = prepareQuery('''
-    SELECT Distinct ?x
-    WHERE{
-            ?x FOAF:knows ?y
-    }''', initNs = {"rdf": RDF, "ns": ns, "FOAF":FOAF}
+    SELECT ?x
+    WHERE {
+        ?x FOAF:knows ?persona
+    }
+    GROUP BY ?x
+    HAVING (COUNT(?persona) >= 2)
+    LIMIT 100
+    ''', initNs = {"ns": ns, "FOAF":FOAF}
     )
 for r in g.query(q1):
   print(r)
