@@ -68,7 +68,7 @@ full_name = Literal("Jane Smith")
 g.add((JaneSmith, ns3.FN, full_name))
 
 given_name = Literal("Jane")
-g.add((JaneSmith, ns3.gIVEN, given_name))
+g.add((JaneSmith, ns3.GIVEN, given_name))
 
 family_name = Literal("Smith")
 g.add((JaneSmith, ns3.Family, family_name))
