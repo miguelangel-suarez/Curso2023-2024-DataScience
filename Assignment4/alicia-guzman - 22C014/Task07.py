@@ -42,7 +42,7 @@ for s, p, o in g.triples((None, RDFS.subClassOf, ns.LivingThing)):
 # with SPARQL
 q1 = prepareQuery('''
    SELECT ?Subject WHERE { 
-      ?Subject rdfs:subClassOf ns:LivingThing.
+      ?Subject rdfs:subClassOf* ns:LivingThing.
     } 
     ''',
     initNs={"rdfs": RDFS, "ns": ns}
@@ -76,7 +76,7 @@ for s1, p1, o1 in g.triples((None, RDFS.subClassOf, ns.Person)):
 q2 = prepareQuery('''
    SELECT ?Subject WHERE { 
       ?Subject rdf:type ?person . 
-      ?person rdfs:subClassOf ns:Person .
+      ?person rdfs:subClassOf* ns:Person .
     } 
     ''',
     initNs = {"rdfs": RDFS, "rdf": RDF, "ns": ns}
@@ -115,14 +115,19 @@ q4 = prepareQuery('''
       ?Subject rdf:type ns:Animal .
       ?Subject ?prop ?value .
     } 
+    UNION
+     { 
+      ?Subject rdf:type ns:Person .
+      ?Subject ?prop ?value .
+    } 
     ''',
     initNs = {"rdf": RDF, "ns": ns}
 )
 
 q5 = prepareQuery('''
    SELECT ?Subject ?prop WHERE { 
-      ?Subject rdf:type ?person .
-      ?person rdfs:subClassOf ns:Animal .
+      ?Subject rdf:type ?animal .
+      ?animal rdfs:subClassOf* ns:Animal .
       ?Subject ?prop ?value .
     } 
     ''',
@@ -156,10 +161,10 @@ for s, p, o in g.triples((None, FOAF.Knows, ns.Rocky)):
 q6 = prepareQuery('''
    SELECT ?Subject WHERE { 
         ?Subject rdf:type ?person .
-        ?person ns:knows "Rocky"
+        ?person FOAF:knows "Rocky"
     } 
     ''',
-    initNs = {"rdfs": RDFS, "rdf": RDF, "ns": ns}
+    initNs = {"rdfs": RDFS, "rdf": RDF, "ns": ns, "FOAF":FOAF}
 )
 
 
