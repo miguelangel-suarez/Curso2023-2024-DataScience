@@ -14,7 +14,7 @@ github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedDa
 
 """First let's read the RDF file"""
 
-from rdflib import Graph, Namespace, Literal
+from rdflib import Graph, Namespace, Literal, FOAF
 from rdflib.namespace import RDF, RDFS
 g = Graph()
 g.namespace_manager.bind('ns', Namespace("http://somewhere#"), override=False)
@@ -28,11 +28,12 @@ VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 ns = Namespace("http://somewhere#")
 from rdflib.plugins.sparql import prepareQuery
 q1 = prepareQuery('''
-  SELECT ?Subject WHERE {
-    ?Subject RDFS.subClassOf ns.LivingThing.
+  SELECT distinct ?Subject
+  WHERE {
+    ?Subject rdfs:subClassOf* ns:LivingThing.
   }
   ''',
-  initNs = { "vcard": VCARD, "ns": ns, "RDFS": RDFS}
+  initNs = {"ns": ns, "rdfs": RDFS}
 )
 # Visualize the results
 
@@ -44,13 +45,15 @@ for r in g.query(q1):
 """
 
 q2 = prepareQuery('''
-  SELECT ?Subject WHERE {
+  SELECT ?person WHERE {
+  {
   { ?person rdf:type ?tipo.
-    ?tipo rdf:subClassOf foaf:Person.}
-  UNION { ?person rdf:type foaf:Person.}
-
+    ?tipo rdf:subClassOf ns:Person.}
+  UNION { ?person rdf:type ns:Person.}
+  }
+  }
   ''',
-  initNs = { "vcard": VCARD, "ns": ns, "RDFS": RDFS}
+  initNs = { "vcard": VCARD, "ns": ns, "RDFS": RDFS, "rdf":RDF}
 )
 # Visualize the results
 
@@ -64,11 +67,11 @@ for r in g.query(q2):
 # TO DO
 q3 = prepareQuery('''
   SELECT ?person ?pers_properties ?animal ?animal_properties WHERE {
-  ?person rdf:type foaf:Person.
-  ?animal rdf:type foaf:Animal.
+  ?person rdf:type ns:Person.
+  ?animal rdf:type ns:Animal.
   ?person ?pers_properties ?predicate.
   ?animal ?animal_properties ?predicate.
-
+  }
   ''',
   initNs = { "vcard": VCARD, "ns": ns, "RDFS": RDFS}
 )
@@ -81,32 +84,13 @@ for r in g.query(q3):
 """**TASK 7.4:  List the name of the persons who know Rocky**"""
 
 # TO DO
-q3 = prepareQuery('''
-  SELECT ?persons WHERE {
-  ?persons rdf:type foaf:Person.
-  ?persons foaf:knows ns.Rocky
-
-  ''',
-  initNs = { "vcard": VCARD, "ns": ns, "RDFS": RDFS}
-)
-# Visualize the results
-
-for r in g.query(q3):
-  print(r)
-# Visualize the results
-
-"""**Task 7.5: List the entities who know at least two other entities in the graph**"""
-
-# TO DO
 q4 = prepareQuery('''
-  SELECT DISTINCT ?entity
-    WHERE {
-        ?entity ns:knows ?entity1.
-        ?entity ns:knows ?entity2.
-        FILTER (?entity1 != ?entity2)
-    }
+  SELECT ?persons WHERE {
+  ?persons rdf:type ns:Person.
+  ?persons foaf:knows ns:RockySmith
+ }
   ''',
-  initNs = { "vcard": VCARD, "ns": ns, "RDFS": RDFS}
+  initNs = { "vcard": VCARD, "ns": ns, "RDFS": RDFS, "foaf": FOAF}
 )
 # Visualize the results
 
@@ -114,7 +98,23 @@ for r in g.query(q4):
   print(r)
 # Visualize the results
 
+"""**Task 7.5: List the entities who know at least two other entities in the graph**"""
+
+# TO DO
+q5 = prepareQuery('''
+  SELECT DISTINCT ?entity
+    WHERE {
+        ?entity FOAF:knows ?entity1.
+        ?entity FOAF:knows ?entity2.
+        FILTER (?entity1 != ?entity2)
+    }
+  ''',
+  initNs = { "vcard": VCARD, "ns": ns, "RDFS": RDFS, 'FOAF': FOAF}
+)
 # Visualize the results
+
+for r in g.query(q5):
+  print(r)
 
 
 

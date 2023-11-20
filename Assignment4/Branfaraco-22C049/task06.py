@@ -61,13 +61,12 @@ from rdflib import BNode
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 # Cuando intento usar vcard en minusculas, como esta definido arriba no funciona, dejo una linea para comprobarlo
 # g.add((ns.JaneSmith, vcard.hasEmail, Literal("jsmith@example.org")))
-g.add((ns.JaneSmith, VCARD.hasEmail, Literal("jsmith@example.org")))
+g.add((ns.JaneSmith, VCARD.EMAIL, Literal("jsmith@example.org")))
 g.add((ns.JaneSmith, VCARD.FN, Literal("Jane Smith")))
 
 names_node = BNode()
-g.add((ns.JaneSmith, VCARD.N, names_node))
-g.add((names_node, VCARD.hasFamilyName, Literal("Jany")))
-g.add((names_node, VCARD.hasGivenName, Literal("Jany")))
+g.add((names_node, VCARD.Given, Literal("Jany")))
+g.add((names_node, VCARD.Family, Literal("Smith")))
 
 
 # Visualize the results
@@ -78,7 +77,7 @@ for s, p, o in g.triples((ns.JaneSmith, None, None)):
 
 # TO DO
 g.add((ns.UPM, RDF.type, ns.University))
-g.add((ns.JonhSmith, VCARD.work, ns.UPM))
+g.add((ns.JonhSmith, VCARD.worksat, ns.UPM))
 # Visualize the results
 for s, p, o in g.triples((ns.JonhSmith, None, None)):
   print(s,p,o)
