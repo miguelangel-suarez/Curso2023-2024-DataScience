@@ -1,0 +1,59 @@
+ @prefix apar: <http://deportesMadrid/ontologies/aparcabicis#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pol: <http://deportesMadrid/ontologies/polideportivos#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rel: <http://deportesMadrid/relations#> .
+
+apar:Calle a owl:Class ;
+    rdfs:label "Calle" .
+
+apar:Estado a owl:Class ;
+    rdfs:label "Estado" .
+
+apar:Fecha_instalacion a owl:Class ;
+    rdfs:label "Fecha_instalacion" .
+
+apar:Modelo a owl:Class ;
+    rdfs:label "Modelo" .
+
+pol: a owl:Ontology ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+pol:Calle a owl:Class ;
+    rdfs:label "Calle" .
+
+pol:Equipamiento a owl:Class ;
+    rdfs:label "Equipamiento" .
+
+pol:Transporte a owl:Class ;
+    rdfs:label "Transporte" .
+
+pol:URL a owl:Class ;
+    rdfs:label "U R L" .
+
+rel:Codigo_Postal a owl:Class ;
+    rdfs:label "Codigo_ Postal" .
+
+rel:Distrito a owl:Class ;
+    rdfs:label "Distrito" .
+
+rel:se_encuentra_en a owl:ObjectProperty ;
+    rdfs:label "se_encuentra_en" ;
+    rdfs:domain apar:ID_aparcabicis ;
+    rdfs:range rel:Barrio .
+
+rel:tiene_como_via a owl:ObjectProperty ;
+    rdfs:label "tiene_como_via" ;
+    rdfs:domain pol:Polideportivo ;
+    rdfs:range rel:Barrio .
+
+apar:ID_aparcabicis a owl:Class ;
+    rdfs:label "I D_aparcabicis" .
+
+pol:Polideportivo a owl:Class ;
+    rdfs:label "Polideportivo" .
+
+rel:Barrio a owl:Class ;
+    rdfs:label "Barrio" .
+
