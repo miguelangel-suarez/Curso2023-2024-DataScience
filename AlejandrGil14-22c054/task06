@@ -1,6 +1,3 @@
-**Task 06: Modifying RDF(s)**
-"""
-
 !pip install rdflib
 github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2023-2024/master/Assignment4/course_materials"
 
@@ -42,30 +39,20 @@ for s, p, o in g:
 """**TASK 6.3: Create a new individual of Researcher named "Jane Smith"**"""
 
 # TO DO
-fullName = Literal("Jane Smith")
-EX = Namespace("http://example.org/")
-janeURI = ns.JaneSmith
-resource = (janeURI ,ns.Researcher, fullName)
-g.add(resource)
+jane = ns.JaneSmith
+g.add((jane, RDF.type, ns.Researcher))
 # Visualize the results
-print(resource)
-print("----------------------------------------")
 for s, p, o in g:
   print(s,p,o)
 
 """**TASK 6.4: Add to the individual JaneSmith the email address, fullName, given and family names**"""
 
 # TO DO
+g.add((jane, ns.email, Literal("jane.smith@email.com")))
+g.add((jane, ns.fullName, Literal("Jane Smith")))
+g.add((jane, ns.givenName, Literal("Jane")))
+g.add((jane, ns.familyName, Literal("Smith")))
 # Visualize the results
-vcard = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
-email=(janeURI, vcard.EMAIL, Literal('jsmith@example.org'))
-g.add(email)
-nombre = (janeURI, vcard.FN, Literal("Jane Alex Smith"))
-g.add(nombre)
-
-print(email)
-print(nombre)
-print("-----------------------------------------------------")
 for s, p, o in g:
   print(s,p,o)
 
@@ -75,13 +62,10 @@ for s, p, o in g:
 JohnUri = ns.JohnSmith
 UPM_uri = EX.Upm
 UPM = (UPM_uri, RDF.type, vcard.University)
-relacion = (JohnUri, vcard.WorksAt, UPM_uri)
+relacion = (JohnUri, ns.WorksAt, UPM_uri)
 g.add(relacion)
 g.add(UPM)
 # Visualize the results
-print(relacion)
-print(UPM)
-print("-------------------------------------------")
 for s, p, o in g:
   print(s,p,o)
 
