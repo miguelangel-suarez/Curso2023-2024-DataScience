@@ -23,16 +23,18 @@ g.parse(github_storage+"/rdf/example6.rdf", format="xml")
 
 """**TASK 7.1: List all subclasses of "LivingThing" with RDFLib and SPARQL**"""
 
-ns = Namespace("http://somewhere#")
 from rdflib.plugins.sparql import prepareQuery
+ns = Namespace("http://somewhere#")
 
-q1=prepareQuery('''
-    SELECT distinct ?subject
-    where{
-        ?subject rdfs:subClassOf ns:LivingThing.}''',
-    initNs={"rdfs":RDFS, "ns":ns}
-)
 
+query1 = """
+SELECT ?subject
+WHERE {
+    ?subject rdfs:subClassOf ns:LivingThing .
+}
+"""
+
+q1 = prepareQuery(query1, initNs={"ns": ns, "rdfs": RDFS})
 for r in g.query(q1):
   print(r)
 
