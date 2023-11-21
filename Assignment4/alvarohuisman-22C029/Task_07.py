@@ -1,35 +1,28 @@
-#!/usr/bin/env python
-# coding: utf-8
-
+# %% [markdown]
 # **Task 07: Querying RDF(s)**
 
-# In[1]:
-
-
-get_ipython().system('pip install rdflib')
+# %%
+!pip install rdflib
 github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2023-2024/master/Assignment4/course_materials"
 
-
+# %% [markdown]
 # First let's read the RDF file
 
-# In[20]:
-
-
+# %%
 from rdflib import Graph, Namespace, Literal
 from rdflib.namespace import RDF, RDFS
 g = Graph()
-#g.namespace_manager.bind('ns', Namespace("http://somewhere#"), override=False)
-#g.namespace_manager.bind('vcard', Namespace("http://www.w3.org/2001/vcard-rdf/3.0#"), override=False)
+g.namespace_manager.bind('ns', Namespace("http://somewhere#"), override=False)
+g.namespace_manager.bind('vcard', Namespace("http://www.w3.org/2001/vcard-rdf/3.0#"), override=False)
 g.parse(github_storage+"/rdf/example6.rdf", format="xml")
 for s, p, o in g:
   print(s,p,o)
 
 
+# %% [markdown]
 # **TASK 7.1: List all subclasses of "LivingThing" with RDFLib and SPARQL**
 
-# In[3]:
-
-
+# %%
 # TO DO
 from rdflib.plugins.sparql import prepareQuery
 import rdflib
@@ -47,14 +40,11 @@ living = rdflib.URIRef("http://somewhere#LivingThing")
 for r in g.query(q1, initBindings={'LivingThing':living}):
   print(r.Subject)
 
-
+# %% [markdown]
 # **TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
 # 
 
-# In[4]:
-
-
-# TO DO
+# %%
 from rdflib import RDF
 
 q21 = prepareQuery('''
@@ -100,13 +90,11 @@ for r in g.query(q23,initBindings={'Professor':professor}):
 for r in g.query(q24,initBindings={'PhDstudent':phdstudent}):
   print(r.Subject)
 
-
+# %% [markdown]
 # **TASK 7.3: List all individuals of "Person" or "Animal" and all their properties including their class with RDFLib and SPARQL. You do not need to list the individuals of the subclasses of person**
 # 
 
-# In[33]:
-
-
+# %%
 # TO DO
 
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
@@ -127,7 +115,6 @@ q31 = prepareQuery('''
 for r in g.query(q31,initBindings={'Person':person}):
   print(r.Subject, r.FullName, r.Given)
 
-
 q32 = prepareQuery('''
   SELECT ?Subject ?Fullname ?Given ?Family WHERE { 
     ?Subject rdf:type  ?Animal.
@@ -145,41 +132,47 @@ for r in g.query(q32,initBindings={'Animal':animal}):
   print(r.Subject, r.FullName, r.Given, r.Family)
 
 
+
+# %% [markdown]
 # **TASK 7.4:  List the name of the persons who know Rocky**
 
-# In[6]:
+# %%
+from rdflib import FOAF, RDF, RDFS, Namespace
 
+VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 
-# TO DO
-from rdflib import FOAF
-
-q4 =  prepareQuery('''
-  SELECT  ?Subject WHERE {
+q4 = prepareQuery('''
+  SELECT ?Name WHERE {
     ?Subject foaf:knows ?RockySmith.
-    ?Subject rdf:type ?Person.
-  }  
-  ''',
-  initNs = { "foaf": FOAF , "rdf": RDF}
-)
+    ?Subject rdf:type/rdfs:subClassOf* foaf:Person.
+    ?Subject vcard:FN ?Name.
+  }
+''',
+initNs={"foaf": FOAF, "rdf": RDF, "rdfs": RDFS, "vcard": VCARD})
 
 rocky = rdflib.URIRef("http://somewhere#RockySmith")
 
 # Visualize the results
-for r in g.query(q4, initBindings={'RockySmith':rocky,'Person':person}):
-    print(r.Subject)
+for r in g.query(q4, initBindings={'RockySmith': rocky}):
+    print(r.Name)
 
 
+# %% [markdown]
 # **Task 7.5: List the entities who know at least two other entities in the graph**
 
-# In[7]:
-
-
+# %%
 # TO DO
+q5 = prepareQuery('''
+  SELECT ?Subject (COUNT(?known) AS ?count) WHERE {
+    ?Subject foaf:knows ?known.
+  }
+  GROUP BY ?Subject
+  HAVING (COUNT(?known) >= 2)
+''',
+initNs={"foaf": FOAF})
+
 # Visualize the results
-
-
-# In[ ]:
-
-
+for r in g.query(q5):
+    print(r.Subject)
 
 
