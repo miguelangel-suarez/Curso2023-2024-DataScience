@@ -65,9 +65,11 @@ for s, p, o in g:
 """**TASK 6.5: Add UPM as the university where John Smith works**"""
 
 g.add((ns.UPM, RDF.type, ns.University))
-g.add((ns.UPM, vcard.workarea, ns.JohnSmith))
-# Visualize the results
-for s, p, o in g:
+g.add((ns.JohnSmith, ns.works, ns.UPM))
+
+for s, p, o in g.triples((ns.UPM, None, None)):
+  print(s,p,o)
+for s, p, o in g.triples((None,None,ns.UPM)):
   print(s,p,o)
 
 """**Task 6.6: Add that Jown knows Jane using the FOAF vocabulary**"""
