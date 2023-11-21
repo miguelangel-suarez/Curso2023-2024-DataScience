@@ -1,4 +1,4 @@
- @prefix apar: <http://deportesMadrid/ontologies/aparcabicis#> .
+@prefix apar: <http://deportesMadrid/ontologies/aparcabicis#> .
 @prefix mod: <https://w3id.org/mod#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pol: <http://deportesMadrid/ontologies/polideportivos#> .
