@@ -82,6 +82,6 @@ for s, p, o in g:
 
 # TO DO
 # Visualize the results
-g.add((ns.JohnSmith, ns.knows, jane_smith))
+g.add((ns.JohnSmith, FOAF.knows, ns.jane_smith))
 for s, p, o in g:
   print(s,p,o)
