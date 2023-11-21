@@ -68,7 +68,7 @@ family_name= Literal("Smith")
 g.add((ns.JaneSmith,VCARD.FN, fullname))
 g.add((ns.JaneSmith, VCARD.Given, given_name))
 g.add((ns.JaneSmith, VCARD.Family, family_name))
-g.add((ns.JaneSmith, VCARD.EmailAddress, email))
+g.add((ns.JaneSmith, VCARD.EMAIL, email))
 # Visualize the results
 for s,p,o in g:
   print(s,p,o)
@@ -77,7 +77,7 @@ for s,p,o in g:
 
 # TO DO
 g.add((ns.UPM, RDF.type, ns.University))
-g.add((ns.JohnSmith,VCARD.Work, ns.UPM))
+g.add((ns.JohnSmith,ns.works, ns.UPM))
 # Visualize the results
 for s,p,o in g:
   print(s,p,o)
