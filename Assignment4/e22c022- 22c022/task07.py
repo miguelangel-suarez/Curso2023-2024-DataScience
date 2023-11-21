@@ -30,15 +30,27 @@ from rdflib.plugins.sparql import prepareQuery
 
 #RDFLib
 
-for s,p,o in g.triples((None, RDFS.subClassOf, ns.LivingThing)):
-  print(s)
+from rdflib import RDF, RDFS
+
+def sc(g, class_name):
+    scs = set()
+    for s, p, o in g.triples((None, RDF.type, RDFS.Class)):
+        if (s, RDFS.subClassOf, class_name) in g:
+            scs.add(s)
+            scs.update(sc(g, s))
+    return scs
+
+subclasses_lt = sc(g, ns.LivingThing)
+
+for subclass in subclasses_lt:
+    print(subclass)
 
 #SPARQL
 
 query1 = """
 SELECT ?subclass
 WHERE {
-    ?subclass rdfs:subClassOf ns:LivingThing .
+    ?subclass rdfs:subClassOf* ns:LivingThing .
 }
 """
 
@@ -72,7 +84,7 @@ WHERE
     }
     UNION
     {
-      ?subclass rdfs:subClassOf ns:Person.
+      ?subclass rdfs:subClassOf* ns:Person.
       ?person a ?subclass.
     }
 }
@@ -105,13 +117,12 @@ SELECT DISTINCT ?person ?property ?value
 WHERE
 {
     {
-        ?person rdf:type ns:LivingThing.
+        ?person rdf:type ns:Person.
         ?person ?property ?value.
     }
     UNION
     {
-        ?subclass rdfs:subClassOf ns:LivingThing.
-        ?person a ?subclass.
+        ?person rdf:type ns:Animal.
         ?person ?property ?value.
     }
 }
@@ -153,4 +164,31 @@ for r in g.query(query4):
 
 # TO DO
 
+#RDFLib
+
+contador = {}
+for s,p,o in g.triples((None, FOAF.knows, None)):
+    contador[s] = contador.get(s, 0)+1
+entidades = []
+for key, value in contador.items():
+    if value >= 2:
+        entidades.append(key)
+print(entidades)
+
+#SPARQL
+
+query5 = prepareQuery('''
+ SELECT ?entity
+  WHERE {
+    ?entity FOAF:knows ?entity2
+  }
+  GROUP BY ?entity
+  HAVING (COUNT(?entity2) >= 2)
+  ''',
+  initNs = {"FOAF":FOAF}
+)   
+
 # Visualize the results
+
+for r in g.query(query5):
+    print(r.entity)
