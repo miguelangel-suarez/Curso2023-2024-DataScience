@@ -1,0 +1,92 @@
+ @prefix apar: <http://deportesMadrid/ontologies/aparcabicis#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pol: <http://deportesMadrid/ontologies/polideportivos#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rel: <http://deportesMadrid/relations#> .
+
+apar:CASINO a owl:Class ;
+    rdfs:label "C A S I N O" .
+
+apar:Calle a owl:Class ;
+    rdfs:label "Calle" .
+
+apar:Estado a owl:Class ;
+    rdfs:label "Estado" .
+
+apar:Fecha_instalacion a owl:Class ;
+    rdfs:label "Fecha_instalacion" .
+
+apar:MU-51 a owl:Class ;
+    rdfs:label "M U-51" .
+
+apar:Modelo a owl:Class ;
+    rdfs:label "Modelo" .
+
+apar:OPERATIVO a owl:Class ;
+    rdfs:label "O P E R A T I V O" .
+
+pol: a owl:Ontology ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+pol:1PistaPolideportiva1PistadeBaloncesto a owl:Class ;
+    rdfs:label "1 Pista Polideportiva1 Pistade Baloncesto" .
+
+pol:CASINO a owl:Class ;
+    rdfs:label "C A S I N O" .
+
+pol:Calle a owl:Class ;
+    rdfs:label "Calle" .
+
+pol:Equipamiento a owl:Class ;
+    rdfs:label "Equipamiento" .
+
+pol:InstalaciónDeportivaMunicipalBásicaCasinodelaReina a owl:Class ;
+    rdfs:label "Instalación Deportiva Municipal Básica Casinodela Reina" .
+
+pol:Transporte a owl:Class ;
+    rdfs:label "Transporte" .
+
+pol:URL a owl:Class ;
+    rdfs:label "U R L" .
+
+rel:28005 a owl:Class ;
+    rdfs:label "28005" .
+
+rel:CENTRO a owl:Class ;
+    rdfs:label "C E N T R O" .
+
+rel:Codigo_Postal a owl:Class ;
+    rdfs:label "Codigo_ Postal" .
+
+rel:Distrito a owl:Class ;
+    rdfs:label "Distrito" .
+
+rel:se_encuentra_en a owl:ObjectProperty ;
+    rdfs:label "se_encuentra_en" ;
+    rdfs:domain apar:5176409,
+        apar:ID_aparcabicis ;
+    rdfs:range rel:Barrio,
+        rel:EMBAJADORES .
+
+rel:tiene_como_via a owl:ObjectProperty ;
+    rdfs:label "tiene_como_via" ;
+    rdfs:domain pol:Polideportivo ;
+    rdfs:range rel:Barrio,
+        rel:EMBAJADORES .
+
+apar:5176409 a owl:Class ;
+    rdfs:label "5176409" .
+
+apar:ID_aparcabicis a owl:Class ;
+    rdfs:label "I D_aparcabicis" .
+
+pol:Polideportivo a owl:Class ;
+    rdfs:label "Polideportivo" .
+
+rel:Barrio a owl:Class ;
+    rdfs:label "Barrio" .
+
+rel:EMBAJADORES a owl:Class ;
+    rdfs:label "E M B A J A D O R E S" .
+
