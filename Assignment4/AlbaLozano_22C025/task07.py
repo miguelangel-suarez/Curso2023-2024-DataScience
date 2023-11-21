@@ -21,7 +21,7 @@ g.namespace_manager.bind('ns', Namespace("http://somewhere#"), override=False)
 g.namespace_manager.bind('vcard', Namespace("http://www.w3.org/2001/vcard-rdf/3.0#"), override=False)
 g.parse(github_storage+"/rdf/example6.rdf", format="xml")
 
-"""**TASK 7.1: List all subclasses of "LivingThing" with RDFLib and SPARQL**"""
+"""# **TASK 7.1: List all subclasses of "LivingThing" with SPARQL**"""
 
 from rdflib.plugins.sparql import prepareQuery
 ns = Namespace("http://somewhere#")
@@ -30,7 +30,7 @@ ns = Namespace("http://somewhere#")
 query1 = """
 SELECT ?subject
 WHERE {
-    ?subject rdfs:subClassOf ns:LivingThing .
+    ?subject rdfs:subClassOf* ns:LivingThing .
 }
 """
 
@@ -38,9 +38,16 @@ q1 = prepareQuery(query1, initNs={"ns": ns, "rdfs": RDFS})
 for r in g.query(q1):
   print(r)
 
-"""**TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
+"""# **TASK 7.1: List all subclasses of "LivingThing" with RDFLib**"""
 
-"""
+def getAllSubclases(padre: str):
+     for s, p, o in g.triples((None, RDFS.subClassOf, padre)):
+         print(s)
+         getAllSubclases(s)
+
+getAllSubclases(ns.LivingThing)
+
+"""# **TASK 7.2: List all individuals of "Person" with SPARQL (remember the subClasses)**"""
 
 # TO DO
 q2 = """
@@ -55,7 +62,21 @@ q2 = prepareQuery(q2, initNs={"ns": ns, "rdfs": RDFS})
 for r in g.query(q2):
     print(r)
 
-"""**TASK 7.3: List all individuals of "Person" or "Animal" and all their properties including their class with RDFLib and SPARQL. You do not need to list the individuals of the subclasses of person**
+"""# **TASK 7.2: List all individuals of "Person" with rdflib (remember the subClasses)**"""
+
+def getAllSubclasesIndividuals(padre: str):
+     for s2, p2, o2 in g.triples((None, RDFS.subClassOf, padre)):
+         getAllIndivituals(s2)
+         getAllSubclasesIndividuals(s2)
+
+def getAllIndivituals(Type : str):
+    for s2,p2,o2 in g.triples((None, RDF.type, Type)):
+        print(s2)
+
+getAllIndivituals(ns.Person)
+getAllSubclasesIndividuals(ns.Person)
+
+"""**TASK 7.3: List all individuals of "Person" or "Animal" and all their properties including their class with SPARQL. You do not need to list the individuals of the subclasses of person**
 
 """
 
@@ -74,6 +95,21 @@ q3 = prepareQuery(query, initNs={"ns": ns})
 
 for r in g.query(q3):
     print(r)
+
+"""**TASK 7.3: List all individuals of "Person" or "Animal" and all their properties including their class with RDFLib. You do not need to list the individuals of the subclasses of person**
+
+"""
+
+def getAllData(sujeto: str):
+    for s3,p3,o3 in g.triples((sujeto, None, None)):
+        print(s3,p3,o3)
+
+def getAllDataIndivituals(Type : str):
+    for s3,p3,o3 in g.triples((None, RDF.type, Type)):
+        getAllData(s3)
+
+getAllDataIndivituals(ns.Person)
+getAllDataIndivituals(ns.Animal)
 
 """**TASK 7.4:  List the name of the persons who know Rocky**"""
 
