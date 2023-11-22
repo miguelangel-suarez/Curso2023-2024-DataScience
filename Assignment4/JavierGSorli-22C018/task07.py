@@ -27,70 +27,146 @@ from rdflib.plugins.sparql import prepareQuery
 
 ns=Namespace("http://somewhere#")
 
-q1 = prepareQuery('''
+
+##SPARQL
+
+clases=set()
+
+def rec_subclass(clase):
+  if clase in clases:
+    return
+  clases.add(clase)
+  q1 = prepareQuery('''
   SELECT ?Subject WHERE{
-    ?Subject rdfs:subClassOf ns:LivingThing.
+    ?Subject rdfs:subClassOf ?Superclass.
   }
   ''',
-  initNs = {"rdfs" : RDFS, "ns": ns}
-)
+  initNs = {"rdfs" : RDFS, "ns": ns})
+  for r in g.query(q1, initBindings={'Superclass': clase}):
+    rec_subclass(r.Subject)
 
-for r in g.query(q1):
-  print(r.Subject)
+rec_subclass(ns.LivingThing)
+for i in clases:
+  print(i)
+
+print()
+
+##RDFlib
+
+clases2=set()
+
+def rec_subclass2(clase):
+  if clase in clases2:
+    return
+  clases2.add(clase)
+  for s,p,o in g.triples((None, RDFS.subClassOf, clase)):
+    rec_subclass2(s)
+
+rec_subclass2(ns.LivingThing)
+for i in clases2:
+  print(i)
 
 """**TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
 
 """
 
-q1 = prepareQuery('''
+##SPARQL
+
+clases=set()
+
+def elems(i):
+  q1 = prepareQuery('''
   SELECT ?Subject WHERE{
-    ?Subject RDF:type ns:Person.
+    ?Subject RDF:type ?Superclass.
   }
   ''',
-  initNs = {"RDF" : RDF, "ns": ns}
-)
+  initNs = {"RDF" : RDF})
+  for r in g.query(q1, initBindings={'Superclass': i}):
+    print(r.Subject)
 
-for r in g.query(q1):
-  print(r.Subject)
+rec_subclass(ns.Person)
+for i in list(clases):
+  elems(i)
+
+print()
+
+##RDFlib
+
+clases2=set()
+rec_subclass2(ns.Person)
+for i in list(clases2):
+  for s,p,o in g.triples((None, RDF.type, i)):
+      print(s)
 
 """**TASK 7.3: List all individuals of "Person" or "Animal" and all their properties including their class with RDFLib and SPARQL. You do not need to list the individuals of the subclasses of person**
 
 """
 
+##SPARQL
+
 q1 = prepareQuery('''
-  SELECT ?Subject ?clase ?propiedad ?valor
+  SELECT ?Subject ?propiedad ?valor
   WHERE{
-    ?Subject RDF:type ?clase.
-    ?Subject ?propiedad ?valor.
-    FILTER (?clase = ns:Animal || ?clase = ns:Person)
+    {?Subject RDF:type ns:Animal.
+    ?Subject ?propiedad ?valor.}
+    UNION
+    {?Subject RDF:type ns:Person.
+    ?Subject ?propiedad ?valor.}
   }
   ''',
   initNs = {"RDF" : RDF, "ns": ns}
 )
 
 for r in g.query(q1):
-  print(r.Subject, r.propiedad, r.clase, r.valor)
+  print(r.Subject, r.propiedad, r.valor)
+
+print()
+
+##RDFlib
+
+for s,p,o in g.triples((None, RDF.type, ns.Person)):
+  for s2,p2,o2 in g.triples((s, None, None)):
+    print(s2,p2,o2)
+
+for s,p,o in g.triples((None, RDF.type, ns.Animal)):
+  for s2,p2,o2 in g.triples((s, None, None)):
+    print(s2,p2,o2)
 
 """**TASK 7.4:  List the name of the persons who know Rocky**"""
 
 foaf=Namespace("http://xmlns.com/foaf/0.1/")
+vcard=Namespace("http://www.w3.org/2001/vcard-rdf/3.0/")
+
+##SPARQL
 
 q1 = prepareQuery('''
-  SELECT ?Subject
+  SELECT ?nombre
   WHERE{
     ?Subject foaf:knows ns:RockySmith.
     ?Subject RDF:type ns:Person.
+    ?Subject vcard:FN ?nombre.
   }
   ''',
-  initNs = {"RDF" : RDF, "ns": ns, "foaf": foaf}
+  initNs = {"RDF" : RDF, "ns": ns, "foaf": foaf, "vcard":vcard}
 )
 
 for r in g.query(q1):
-  print(r.Subject)
+  print(r.nombre)
+
+print()
+
+##RDFlib
+
+for s,p,o in g.triples((None, foaf.knows, ns.RockySmith)):
+  for s2,p2,o2 in g.triples((s, RDF.type, ns.Person)):
+    for s3,p3,o3 in g.triples((s, vcard.FN, None)):
+      print(o3)
 
 """**Task 7.5: List the entities who know at least two other entities in the graph**"""
 
 foaf=Namespace("http://xmlns.com/foaf/0.1/")
+
+##SPARQL
 
 q1 = prepareQuery('''
   SELECT ?Subject ?persona
@@ -104,20 +180,19 @@ q1 = prepareQuery('''
 )
 
 for r in g.query(q1):
-  print(r)
+  print(r.Subject)
 
-foaf=Namespace("http://xmlns.com/foaf/0.1/")
+print()
 
-q1 = prepareQuery('''
-  SELECT ?Subject ?persona1 ?persona2
-  WHERE{
-    ?Subject foaf:knows ?persona1.
-    ?Subject foaf:knows ?persona2.
-    FILTER(?persona1 != ?persona2)
-  }
-  ''',
-  initNs = {"foaf": foaf}
-)
+#RDFlib
 
-for r in g.query(q1):
-  print(r.Subject, r.persona1, r.persona2)
+conocidos={}
+for s,p,o in g.triples((None, foaf.knows, None)):
+  if s in conocidos:
+    conocidos[s] += 1
+  else:
+    conocidos[s] = 1
+
+for clave, valor in conocidos.items():
+  if valor>=2:
+    print(clave)

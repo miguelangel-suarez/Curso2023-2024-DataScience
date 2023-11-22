@@ -58,11 +58,10 @@ for s, p, o in g:
 
 # TO DO
 # Visualize the results
-vcard = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
-g.add((ns.JaneSmith, vcard.hasEmail, Literal("jane@gmail.com")))
-g.add((ns.JaneSmith, vcard.fn, Literal("Jane Smith")))
-g.add((ns.JaneSmith, vcard.hasGivenName, Literal("Jane")))
-g.add((ns.JaneSmith, vcard.hasFamilyName, Literal("Smith")))
+g.add((ns.JaneSmith, ns.hasEmail, Literal("jane@gmail.com")))
+g.add((ns.JaneSmith, ns.fullName, Literal("Jane Smith")))
+g.add((ns.JaneSmith, ns.hasGivenName, Literal("Jane")))
+g.add((ns.JaneSmith, ns.hasFamilyName, Literal("Smith")))
 for s, p, o in g:
   print(s,p,o)
 
