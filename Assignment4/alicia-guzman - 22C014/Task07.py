@@ -34,10 +34,13 @@ ns = Namespace("http://somewhere#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 
 # with RDFlib
-subclass_LivingThing = []
-for s, p, o in g.triples((None, RDFS.subClassOf, ns.LivingThing)):
-    print(s)
-    subclass_LivingThing += [s]
+def subclases(x) -> None:
+    a = g.triples((None, RDFS.subClassOf, x))
+    if a is not None:
+        for s, p, o in a:
+          print(s)
+          subclases(s)
+subclases(ns.LivingThing)
     
 # with SPARQL
 q1 = prepareQuery('''
@@ -64,13 +67,16 @@ ns = Namespace("http://somewhere#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 
 # with RDFlib
-people = []
-for s, p, o in g.triples((None, RDF.type, ns.Person)):
-    print(s)
-    people += [s]
-for s1, p1, o1 in g.triples((None, RDFS.subClassOf, ns.Person)):
-    print(s1)
-    people += [s1]
+def lista(x) -> None:
+    a = g.triples((None, RDFS.type, x))
+    if a is not None:
+        for s, p, o in a:
+            print(s)
+    b = g.triples((None, RDFS.subClassOf, x))
+    if b is not None:
+        for s2, p2, o2 in b:
+            lista(s2)
+lista(ns.Person)
     
 # with SPARQL
 q2 = prepareQuery('''
@@ -150,6 +156,7 @@ for r in g.query(q5):
 from rdflib.plugins.sparql import prepareQuery
 ns = Namespace("http://somewhere#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
+FOAF = Namespace("http://xmlns.com/foaf/0.1/")
 
 # with RDFlib
 know_Rocky = []
@@ -159,18 +166,17 @@ for s, p, o in g.triples((None, FOAF.Knows, ns.Rocky)):
 
 # with SPARQL
 q6 = prepareQuery('''
-   SELECT ?Subject WHERE { 
-        ?Subject rdf:type ?person .
-        ?person FOAF:knows "Rocky"
-    } 
-    ''',
-    initNs = {"rdfs": RDFS, "rdf": RDF, "ns": ns, "FOAF":FOAF}
-)
+    SELECT DISTINCT ?nombre
+    WHERE{
+            ?x FOAF:knows ns:RockySmith.
+            ?x <http://www.w3.org/2001/vcard-rdf/3.0/Given> ?nombre
+    }''', initNs = {"ns": ns, "FOAF":FOAF}
+    )
 
 
 # Visualize the results
 for r in g.query(q6):
-    print(r)
+  print(r)
 
 
 # **Task 7.5: List the entities who know at least two other entities in the graph**
@@ -184,11 +190,18 @@ ns = Namespace("http://somewhere#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 
 # with RDFlib
-entities = []
-for s, p, o in g.triples((None, FOAF.Knows, ns.Entity1 and ns.Entity2)):
-    if (ns.Entity1 != ns.Entity2):
-        print(s)
-        entities += [s]
+from typing import Dict
+dic:Dict[str, int]={}
+resultado = []
+for s,p,o in g.triples((None, FOAF.knows, None)):
+  if s in dic:
+    dic[s] +=1
+  else:
+    dic[s] = 0
+for clave, cantidad in dic.items():
+    if cantidad >= 2:
+        lista.append(clave)
+print(resultado)
 
 # with SPARQL
 q7 = prepareQuery('''
@@ -205,4 +218,3 @@ q7 = prepareQuery('''
 # Visualize the results
 for r in g.query(q7):
     print(r)
-
