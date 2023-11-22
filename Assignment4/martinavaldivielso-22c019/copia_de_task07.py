@@ -162,4 +162,4 @@ q5 = prepareQuery('''
 )
 
 for r in g.query(q5):
-  print(r.entity)
+  print(r)
