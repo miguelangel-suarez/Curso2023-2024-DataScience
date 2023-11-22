@@ -67,8 +67,8 @@ for s, p, o in g:
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 g.add((ns.JaneSmith, VCARD.EMAIL, Literal("j.smith@example.org")))
 g.add((ns.JaneSmith, VCARD.FN, Literal("Jane Smith")))
-g.add((ns.JaneSmith, VCARD["given-name"] , Literal("Jane")))
-g.add((ns.JaneSmith, VCARD["family-name"], Literal("Smith")))
+g.add((ns.JaneSmith, VCARD.Given , Literal("Jane")))
+g.add((ns.JaneSmith, VCARD.Family, Literal("Smith")))
 # Visualize the results
 
 print("6.4")
