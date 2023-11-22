@@ -25,7 +25,7 @@ g.parse(github_storage+"/rdf/example5.rdf", format="xml")
 
 # TO DO
 ns = Namespace("http://somewhere#")
-g.add((ns.University, RDF.type, RDFS.Class))
+g.add((ns.Researcher, RDF.type, RDFS.Class))
 
 # Visualize the results
 for s, p, o in g:
