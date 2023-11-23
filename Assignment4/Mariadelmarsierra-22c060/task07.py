@@ -32,7 +32,7 @@ ns = Namespace("http://somewhere#")
 q1 = """
 SELECT distinct ?subclass
 WHERE {
-    ?subclass rdfs:subClassOf ns:LivingThing .
+    ?subclass rdfs:subClassOf* ns:LivingThing .
 }
 """
 for s,p,o in g.triples((None, RDFS.subClassOf, ns.LivingThing)):
