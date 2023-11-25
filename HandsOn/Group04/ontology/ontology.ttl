@@ -10,7 +10,7 @@ apar:Estado a owl:DatatypeProperty ;
     rdfs:label "estado" ;
     rdfs:domain apar:Aparcabicis .
 
-apar:Fecha_instalcion a owl:DatatypeProperty ;
+apar:Fecha_instalacion a owl:DatatypeProperty ;
     rdfs:label "fecha_instalcion" ;
     rdfs:domain apar:Aparcabicis .
 
