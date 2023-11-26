@@ -33,7 +33,7 @@ mappings:
             function: equal
             parameters:
               - [Barrio, $(BARRIO)]
-              - [Codigo_Postal, $(CODIGO-POSTAL)]
+              - [Codigo-Postal, $(CODIGO-POSTAL)]
               - [Distrito, $(DISTRITO)]
 
 
