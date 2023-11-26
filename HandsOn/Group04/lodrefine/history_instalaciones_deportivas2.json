@@ -1,0 +1,641 @@
+[
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "CentrosEspaciosDeporte"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/CamposEstadiosFutbol"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "CamposEstadiosFutbol"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/CanchasBaloncesto"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "CanchasBaloncesto"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/CircuitosCiclismo"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "CircuitosCiclismo"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/CircuitosFooting"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "CircuitosFooting"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/Embarcaderos"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Embarcaderos"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/Frontones"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Frontones"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/Gimnasios"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Gimnasios"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/InstalacionesDeportivasBasicas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "InstalacionesDeportivasBasicas"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/Piscinas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Piscinas"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/PistasPadel"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "PistasPadel"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/PistasPatinaje"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "PistasPatinaje"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/PistasTenisBadminton"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "PistasTenisBadminton"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "/contenido/entidadesYorganismos/CentrosEspaciosDeporte/Rocodromo"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rocodromo"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "InstalacionesDeportivasBasicas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "InstalacionesDeportivasBasicas"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "TIPO",
+    "newColumnName": "INSTALACION",
+    "description": "Rename column TIPO to INSTALACION"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ACCESIBILIDAD",
+    "description": "Remove column ACCESIBILIDAD"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "NOMBRE",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "TIPO",
+    "columnInsertIndex": 2,
+    "description": "Create column TIPO at index 2 based on column NOMBRE using expression grel:value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value.replace(/[‘’‚‛‹›‚]/,\"\\'\").replace(/[“”«»„]/,\"\\\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column TIPO using expression value.replace(/[‘’‚‛‹›‚]/,\"\\'\").replace(/[“”«»„]/,\"\\\"\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "NOMBRE",
+          "columnName": "NOMBRE",
+          "query": "Centro Deportivo",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "grel:\"Centro Deportivo\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column TIPO using expression grel:\"Centro Deportivo\""
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "NOMBRE",
+          "columnName": "NOMBRE",
+          "query": "Instalación Deportiva Básica",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "grel:\"Instalación Deportiva Básica\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column TIPO using expression grel:\"Instalación Deportiva Básica\""
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "NOMBRE",
+          "columnName": "NOMBRE",
+          "query": "Instalación Deportiva Municipal",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "grel:\"Instalación Deportiva Municipal\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column TIPO using expression grel:\"Instalación Deportiva Municipal\""
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO",
+          "expression": "value",
+          "columnName": "TIPO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Instalación Deportiva  Básica Embalse de San Juan",
+                "l": "Instalación Deportiva  Básica Embalse de San Juan"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "grel:\"Instalación Deportiva Básica\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column TIPO using expression grel:\"Instalación Deportiva Básica\""
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO",
+          "expression": "value",
+          "columnName": "TIPO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Parque Lineal UZI 0.06 Arroyofresno",
+                "l": "Parque Lineal UZI 0.06 Arroyofresno"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO",
+          "expression": "value",
+          "columnName": "TIPO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Pista de Patinaje Paco de Lucía",
+                "l": "Pista de Patinaje Paco de Lucía"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO",
+          "expression": "value",
+          "columnName": "TIPO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Pista de petanca Centro de Mayores La Vaguada",
+                "l": "Pista de petanca Centro de Mayores La Vaguada"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE-VIA",
+    "expression": "join ([cells['NOMBRE-VIA'].value,cells['NUM'].value],'-')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column NOMBRE-VIA using expression join ([cells['NOMBRE-VIA'].value,cells['NUM'].value],'-')"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "NUM",
+    "description": "Remove column NUM"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "join ([cells['BARRIO'].value,cells['COD-BARRIO'].value],'-')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column BARRIO using expression join ([cells['BARRIO'].value,cells['COD-BARRIO'].value],'-')"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COD-BARRIO",
+    "description": "Remove column COD-BARRIO"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DISTRITO",
+    "expression": "join ([cells['DISTRITO'].value,cells['COD-DISTRITO'].value],'- #')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DISTRITO using expression join ([cells['DISTRITO'].value,cells['COD-DISTRITO'].value],'- #')"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DISTRITO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "DISTRITO"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column DISTRITO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COD-DISTRITO",
+    "description": "Remove column COD-DISTRITO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "NOMBRE",
+          "columnName": "NOMBRE",
+          "query": "Instalación Deportiva",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Instalación Deportiva Municipal"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Instalación Deportiva Básica"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "INSTALACION",
+    "newColumnName": "SERVICIO",
+    "description": "Rename column INSTALACION to SERVICIO"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "SERVICIO",
+    "newColumnName": "INFRAESTRUCTURA",
+    "description": "Rename column SERVICIO to INFRAESTRUCTURA"
+  }
+]
