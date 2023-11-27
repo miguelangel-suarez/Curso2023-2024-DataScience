@@ -764,5 +764,63 @@
     "newColumnName": "links_distrito",
     "columnInsertIndex": 9,
     "description": "Create column links_distrito at index 9 based on column DISTRITO using expression grel:\"https://wikidata.org/entity/\"+cell.recon.match.id"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "address_id",
+    "expression": "jython:return \"Madrid\"",
+    "onError": "set-to-blank",
+    "newColumnName": "Loc",
+    "columnInsertIndex": 3,
+    "description": "Create column Loc at index 3 based on column address_id using expression jython:return \"Madrid\""
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Loc",
+    "newColumnName": "LOCALIDAD",
+    "description": "Rename column Loc to LOCALIDAD"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "﻿ID",
+    "expression": "jython:return value+\"_geo\"",
+    "onError": "set-to-blank",
+    "newColumnName": "ID_GEO",
+    "columnInsertIndex": 1,
+    "description": "Create column ID_GEO at index 1 based on column ﻿ID using expression jython:return value+\"_geo\""
+  },
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "﻿ID",
+      "DESC_CLASIFICACION",
+      "address_id",
+      "LOCALIDAD",
+      "COD_POSTAL",
+      "COD_BARRIO",
+      "BARRIO",
+      "links_barrio",
+      "COD_DISTRITO",
+      "DISTRITO",
+      "links_distrito",
+      "TIPO_VIA",
+      "NOM_VIA",
+      "NUM_VIA",
+      "ESTADO",
+      "ID_GEO",
+      "LATITUD",
+      "LONGITUD",
+      "USO",
+      "MODELO"
+    ],
+    "description": "Reorder columns"
   }
 ]
