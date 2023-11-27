@@ -139,8 +139,8 @@ geo:long a owl:DatatypeProperty ;
     owl:versionInfo "0.0.1" ;
     mod:createdWith <https://chowlk.linkeddata.es/> .
 
-w3:hasBeggining a owl:DatatypeProperty ;
-    rdfs:label "has beggining" ;
+w3:hasBeginning a owl:DatatypeProperty ;
+    rdfs:label "has beginning" ;
     rdfs:domain w3:TemporalEntity ;
     rdfs:range w3:DateTimeDescription .
 
