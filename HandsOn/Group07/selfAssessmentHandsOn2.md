@@ -34,4 +34,4 @@
 No tenemos muy claro cómo reutilizar ontologias predefinidas, para esta entrega hemos puesto alguna cosa, pero creemos que hay más cosas que se pueden reutilizar. Concretamente VCARD no la entendemos muy bien.
 Lo de ns:OtherEntity no sabemos muy bien como usarlo, nos dijo uno de los profesores que lo pusieramos.
 
-L
+Hemos cambiado la cordenada x e y del csv inicial por la latitud y la longitud.
