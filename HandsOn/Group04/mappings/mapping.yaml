@@ -9,13 +9,13 @@ prefixes:
   rml: http://semweb.mmlab.be/ns/rml#
   ql: http://semweb.mmlab.be/ns/ql#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
-  vocab: http://deportesMadrid#
+  vocab: http://www.deportesMadrid.es/
   
 mappings:
   triplesmap1:
     sources:
       - [instalaciones-deportivas-updated.csv~csv]
-    s: http://deportesMadrid/instalaciones-deportivas/$(PK)
+    s: http://www.deportesMadrid.es/instalaciones-deportivas/$(PK)
     po:
       - [a, vocab:Polideportivo]
       - [vocab:Nombre,$(NOMBRE),xsd:string]
@@ -26,21 +26,15 @@ mappings:
       - [vocab:URL,$(CONTENT-URL),xsd:anyURI]
       - [vocab:Nombre-via,$(NOMBRE-VIA),xsd:string]
       - [vocab:Clase-vial,$(CLASE-VIAL),xsd:string]
-      - p: vocab:relation
-        o:
-          mapping: triplesmap3
-          condition:
-            function: equal
-            parameters:
-              - [Barrio, $(BARRIO)]
-              - [Codigo-Postal, $(CODIGO-POSTAL)]
-              - [Distrito, $(DISTRITO)]
+      - p: vocab:Ubicacion
+        o: 
+         - mapping: triplesmap3
 
 
   triplesmap2:
     sources:
       - [aparcabicis-updated.csv~csv]
-    s: http://deportesMadrid/aparcabicis-updated/$(ID)
+    s: http://www.deportesMadrid.es/aparcabicis-updated/$(ID)
     po:
       - [a, vocab:Aparcabicis]
       - [vocab:ID,$(ID),xsd:integer]
@@ -49,21 +43,12 @@ mappings:
       - [vocab:Modelo,$(MODELO),xsd:string]
       - [vocab:Nombre-via,$(NOMBRE-VIA),xsd:string]
       - [vocab:Clase-vial,$(CLASE-VIAL),xsd:string]
-      - p: vocab:relation
-        o:
-          mapping: triplesmap3
-          condition:
-            function: equal
-            parameters:
-              - [Barrio, $(BARRIO)]
-              - [Codigo-Postal, $(CODIGO-POSTAL)]
-              - [Distrito, $(DISTRITO)]
+
           
   triplesmap3:
     sources:
       - [aparcabicis-updated.csv~csv]
-      - [instalaciones-deportivas-updated.csv~csv]
-    s: http://deportesMadrid/ubicacion/$(ID)
+    s: http://www.deportesMadrid.es/ubicacion/$(ID)
     po:
       - [a, vocab:Ubicacion]
       - [vocab:Barrio,$(BARRIO),xsd:string]
