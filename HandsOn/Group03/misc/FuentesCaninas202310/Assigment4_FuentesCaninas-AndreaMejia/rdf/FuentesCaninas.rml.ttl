@@ -20,9 +20,9 @@
 
 
 
-<#Address> a rr:TriplesMap;
+<#Address> ;
   rml:logicalSource [
-    rml:source "./FuentesCaninas202310/Limpieza_Fuentes-AndreaMejía/fuentesmascotas202311-clean.csv" ;
+    rml:source "fuentesmascotas202311.-update.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -70,9 +70,9 @@
   ];
 .
 
-<#State> a rr:TriplesMap;
+<#State> ;
   rml:logicalSource [
-    rml:source "./FuentesCaninas202310/Limpieza_Fuentes-AndreaMejía/fuentesmascotas202311-clean.csv" ;
+    rml:source "fuentesmascotas202311.-update.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -89,9 +89,9 @@
   ];
 .
 
-<#City> a rr:TriplesMap;
+<#City>;
   rml:logicalSource [
-    rml:source "./FuentesCaninas202310/Limpieza_Fuentes-AndreaMejía/fuentesmascotas202311-clean.csv" ;
+    rml:source "fuentesmascotas202311.-update.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -114,9 +114,9 @@
   ];
 .
 
-<#Neighborhood> a rr:TriplesMap;
+<#Neighborhood>;
   rml:logicalSource [
-    rml:source "./FuentesCaninas202310/Limpieza_Fuentes-AndreaMejía/fuentesmascotas202311-clean.csv" ;
+    rml:source "fuentesmascotas202311.-update.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -133,9 +133,9 @@
   ];
 .
 
-<#District> a rr:TriplesMap;
+<#District>;
   rml:logicalSource [
-    rml:source "./FuentesCaninas202310/Limpieza_Fuentes-AndreaMejía/fuentesmascotas202311-clean.csv" ;
+    rml:source "fuentesmascotas202311.-update.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -152,9 +152,9 @@
   ];
 .
 
-<#Street> a rr:TriplesMap;
+<#Street> ;
   rml:logicalSource [
-    rml:source "./FuentesCaninas202310/Limpieza_Fuentes-AndreaMejía/fuentesmascotas202311-clean.csv" ;
+    rml:source "fuentesmascotas202311.-update.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -185,9 +185,9 @@
   ];
 .
 
-<#GeoCoordinates> a rr:TriplesMap;
+<#GeoCoordinates> ;
   rml:logicalSource [
-    rml:source "./FuentesCaninas202310/Limpieza_Fuentes-AndreaMejía/fuentesmascotas202311-clean.csv" ;
+    rml:source "fuentesmascotas202311.-update.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -212,9 +212,9 @@
 .
 
 
-<#DrinkingFountain> a rr:TriplesMap;
+<#DrinkingFountain>;
   rml:logicalSource [
-    rml:source "./FuentesCaninas202310/Limpieza_Fuentes-AndreaMejía/fuentesmascotas202311-clean.csv" ;
+    rml:source "fuentesmascotas202311.-update.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
