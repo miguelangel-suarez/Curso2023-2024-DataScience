@@ -15,7 +15,7 @@ mappings:
     s: http://www.vascomap.com/resource/DotPol/$(ID)
     po:
       - [a, ns:DotPol]
-			- [ns:id, $(ID)]
+      - [ns:id, $(ID)]
       - [ns:value, $(2020), xsd:float]
       - [ns:takesPlaceIn, http://www.vascomap.com/resource/Province/$(PROVINCIA)]
 
@@ -25,7 +25,7 @@ mappings:
     s: http://www.vascomap.com/resource/IndDel/$(ID)
     po:
       - [a, ns:IndDel]
-			- [ns:id, $(ID)]
+      - [ns:id, $(ID)]
       - [ns:value, $(2020), xsd:float]
       - [ns:takesPlaceIn, http://www.vascomap.com/resource/Province/$(PROVINCIA)]
 
@@ -35,7 +35,7 @@ mappings:
     s: http://www.vascomap.com/resource/SegZon/$(PROVINCIA)
     po:
       - [a, ns:SegZon]
-			- [ns:id, $(PROVINCIA)]
+      - [ns:id, $(PROVINCIA)]
       - [ns:value, $(2020), xsd:float]
       - [ns:takesPlaceIn, http://www.vascomap.com/resource/Province/$(PROVINCIA)]
 
@@ -45,7 +45,7 @@ mappings:
     s: http://www.vascomap.com/resource/InfPen/$(PROVINCIA)
     po:
       - [a, ns:InfPen]
-			- [ns:id, $(PROVINCIA)]
+      - [ns:id, $(PROVINCIA)]
       - [ns:value, $(2020), xsd:float]
       - [ns:takesPlaceIn, http://www.vascomap.com/resource/Province/$(PROVINCIA)]
 
