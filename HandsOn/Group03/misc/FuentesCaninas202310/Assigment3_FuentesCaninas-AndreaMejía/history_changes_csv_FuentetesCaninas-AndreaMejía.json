@@ -1,0 +1,430 @@
+[
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO_VIA",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column TIPO_VIA using expression value.toString()"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO_VIA",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "AVDA"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "AVENIDA"
+      }
+    ],
+    "description": "Mass edit cells in column TIPO_VIA"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO_VIA",
+          "expression": "value",
+          "columnName": "TIPO_VIA",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "GTA",
+                "l": "GTA"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "COORD_GIS_X",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column COORD_GIS_X using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "COORD_GIS_Y",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column COORD_GIS_Y using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LATITUD",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column LATITUD using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LONGITUD",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column LONGITUD using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOM_VIA",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column NOM_VIA using expression value.toString()"
+  },
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "﻿ID",
+      "DESC_CLASIFICACION",
+      "COD_BARRIO",
+      "BARRIO",
+      "COD_DISTRITO",
+      "DISTRITO",
+      "ESTADO",
+      "COORD_GIS_X",
+      "COORD_GIS_Y",
+      "SISTEMA_COORD",
+      "LATITUD",
+      "LONGITUD",
+      "TIPO_VIA",
+      "NOM_VIA",
+      "NUM_VIA",
+      "COD_POSTAL",
+      "DIRECCION_AUX",
+      "NDP",
+      "CODIGO_INTERNO",
+      "UBICACION",
+      "USO",
+      "MODELO"
+    ],
+    "description": "Reorder columns"
+  },
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "﻿ID",
+      "DESC_CLASIFICACION",
+      "COD_BARRIO",
+      "BARRIO",
+      "COD_DISTRITO",
+      "DISTRITO",
+      "ESTADO",
+      "COORD_GIS_X",
+      "COORD_GIS_Y",
+      "SISTEMA_COORD",
+      "LATITUD",
+      "LONGITUD",
+      "TIPO_VIA",
+      "NOM_VIA",
+      "NUM_VIA",
+      "COD_POSTAL",
+      "DIRECCION_AUX",
+      "NDP",
+      "CODIGO_INTERNO",
+      "USO",
+      "MODELO"
+    ],
+    "description": "Reorder columns"
+  },
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "﻿ID",
+      "DESC_CLASIFICACION",
+      "COD_BARRIO",
+      "BARRIO",
+      "COD_DISTRITO",
+      "DISTRITO",
+      "ESTADO",
+      "LATITUD",
+      "LONGITUD",
+      "SISTEMA_COORD",
+      "TIPO_VIA",
+      "NOM_VIA",
+      "NUM_VIA",
+      "COD_POSTAL",
+      "DIRECCION_AUX",
+      "USO",
+      "MODELO"
+    ],
+    "description": "Reorder columns"
+  },
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "﻿ID",
+      "DESC_CLASIFICACION",
+      "COD_BARRIO",
+      "BARRIO",
+      "COD_DISTRITO",
+      "DISTRITO",
+      "ESTADO",
+      "LATITUD",
+      "LONGITUD",
+      "TIPO_VIA",
+      "NOM_VIA",
+      "NUM_VIA",
+      "COD_POSTAL",
+      "DIRECCION_AUX",
+      "USO",
+      "MODELO"
+    ],
+    "description": "Reorder columns"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "﻿ID",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ﻿ID using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DESC_CLASIFICACION",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DESC_CLASIFICACION using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "COD_BARRIO",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column COD_BARRIO using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column BARRIO using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "COD_DISTRITO",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column COD_DISTRITO using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DISTRITO",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DISTRITO using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ESTADO",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ESTADO using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO_VIA",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column TIPO_VIA using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOM_VIA",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column NOM_VIA using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NUM_VIA",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column NUM_VIA using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "COD_POSTAL",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column COD_POSTAL using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DIRECCION_AUX",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DIRECCION_AUX using expression value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "USO",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column USO using expression value.toString()"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "USO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "PERSONAS_Y_MASCOTAS"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "PERSONAS Y MASCOTAS"
+      }
+    ],
+    "description": "Mass edit cells in column USO"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "MODELO",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column MODELO using expression value.toString()"
+  }
+]
