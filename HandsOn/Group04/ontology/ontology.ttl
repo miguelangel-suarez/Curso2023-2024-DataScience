@@ -1,39 +1,93 @@
- @prefix apar: <http://deportesMadrid/ontologies/aparcabicis#> .
+@prefix apar: <http://deportesMadrid/ontologies/Aparcabicis#> .
 @prefix mod: <https://w3id.org/mod#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix pol: <http://deportesMadrid/ontologies/polideportivos#> .
+@prefix pol: <http://deportesMadrid/ontologies/Insta_Deportiva#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rel: <http://deportesMadrid/relations#> .
+@prefix ubi: <http://deportesMadrid/ubicacion#> .
 
-apar:Nombre_Barrio a owl:Class ;
-    rdfs:label "Nombre_ Barrio" .
+apar:Clase-vial a owl:DatatypeProperty ;
+    rdfs:label "clase-vial" ;
+    rdfs:domain apar:Aparcabicis .
 
-apar:Nombre_Distrito a owl:Class ;
-    rdfs:label "Nombre_ Distrito" .
+apar:Estado a owl:DatatypeProperty ;
+    rdfs:label "estado" ;
+    rdfs:domain apar:Aparcabicis .
+
+apar:Fecha-instalacion a owl:DatatypeProperty ;
+    rdfs:label "fecha-instalacion" ;
+    rdfs:domain apar:Aparcabicis .
+
+apar:ID a owl:DatatypeProperty ;
+    rdfs:label "i d" ;
+    rdfs:domain apar:Aparcabicis .
+
+apar:Modelo a owl:DatatypeProperty ;
+    rdfs:label "modelo" ;
+    rdfs:domain apar:Aparcabicis .
+
+apar:Nombre-via a owl:DatatypeProperty ;
+    rdfs:label "nombre-via" ;
+    rdfs:domain apar:Aparcabicis .
 
 pol: a owl:Ontology ;
     mod:createdWith <https://chowlk.linkeddata.es/> .
 
-rel:cuenta_con a owl:ObjectProperty ;
-    rdfs:label "cuenta_con" ;
-    rdfs:domain pol:Nombre_polideportivo ;
-    rdfs:range pol:Equipamiento .
+pol:Clase-vial a owl:DatatypeProperty ;
+    rdfs:label "clase-vial" ;
+    rdfs:domain pol:Polideportivo .
 
-rel:se_encuentra_en a owl:ObjectProperty ;
+pol:Equipamiento a owl:DatatypeProperty ;
+    rdfs:label "equipamiento" ;
+    rdfs:domain pol:Polideportivo .
+
+pol:Nombre a owl:DatatypeProperty ;
+    rdfs:label "nombre" ;
+    rdfs:domain pol:Polideportivo .
+
+pol:Nombre-via a owl:DatatypeProperty ;
+    rdfs:label "nombre-via" ;
+    rdfs:domain pol:Polideportivo .
+
+pol:PK a owl:DatatypeProperty ;
+    rdfs:label "p k" ;
+    rdfs:domain pol:Polideportivo .
+
+pol:Tipo a owl:DatatypeProperty ;
+    rdfs:label "tipo" ;
+    rdfs:domain pol:Polideportivo .
+
+pol:Transporte a owl:DatatypeProperty ;
+    rdfs:label "transporte" ;
+    rdfs:domain pol:Polideportivo .
+
+pol:URL a owl:DatatypeProperty ;
+    rdfs:label "u r l" ;
+    rdfs:domain pol:Polideportivo .
+
+ubi:Barrio a owl:DatatypeProperty ;
+    rdfs:label "barrio" ;
+    rdfs:domain ubi:Ubicacion .
+
+ubi:Codigo-Postal a owl:DatatypeProperty ;
+    rdfs:label "codigo- postal" ;
+    rdfs:domain ubi:Ubicacion .
+
+ubi:Distrito a owl:DatatypeProperty ;
+    rdfs:label "distrito" ;
+    rdfs:domain ubi:Ubicacion .
+
+ubi:se_encuentra_en a owl:ObjectProperty ;
     rdfs:label "se_encuentra_en" ;
-    rdfs:domain apar:ID_aparcabicis,
-        pol:Nombre_polideportivo ;
-    rdfs:range apar:Codigo_Postal .
+    rdfs:domain apar:Aparcabicis,
+        pol:Polideportivo ;
+    rdfs:range ubi:Ubicacion .
 
-apar:Codigo_Postal a owl:Class ;
-    rdfs:label "Codigo_ Postal" .
+ubi:Ubicacion a owl:Class ;
+    rdfs:label "Ubicacion" .
 
-apar:ID_aparcabicis a owl:Class ;
-    rdfs:label "I D_aparcabicis" .
+apar:Aparcabicis a owl:Class ;
+    rdfs:label "Aparcabicis" .
 
-pol:Equipamiento a owl:Class ;
-    rdfs:label "Equipamiento" .
-
-pol:Nombre_polideportivo a owl:Class ;
-    rdfs:label "Nombre_polideportivo" .
+pol:Polideportivo a owl:Class ;
+    rdfs:label "Polideportivo" .
 
