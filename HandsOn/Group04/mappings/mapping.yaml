@@ -9,48 +9,46 @@ prefixes:
   rml: http://semweb.mmlab.be/ns/rml#
   ql: http://semweb.mmlab.be/ns/ql#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
-  vocab: http://www.deportesMadrid.es/
+  base: http://deportesMadrid/ontology#
   
 mappings:
-  triplesmap1:
-    sources:
-      - [instalaciones-deportivas-updated.csv~csv]
-    s: http://www.deportesMadrid.es/instalaciones-deportivas/$(PK)
-    po:
-      - [a, vocab:Polideportivo]
-      - [vocab:Nombre,$(NOMBRE),xsd:string]
-      - [vocab:PK,$(PK),xsd:integer]
-      - [vocab:Tipo,$(TIPO),xsd:string]
-      - [vocab:Equipamiento,$(EQUIPAMIENTO),xsd:string]
-      - [vocab:Transporte,$(TRANSPORTE),xsd:string]
-      - [vocab:URL,$(CONTENT-URL),xsd:anyURI]
-      - [vocab:Nombre-via,$(NOMBRE-VIA),xsd:string]
-      - [vocab:Clase-vial,$(CLASE-VIAL),xsd:string]
-      - p: vocab:Ubicacion
-        o: 
-         - mapping: triplesmap3
-
-
-  triplesmap2:
-    sources:
-      - [aparcabicis-updated.csv~csv]
-    s: http://www.deportesMadrid.es/aparcabicis-updated/$(ID)
-    po:
-      - [a, vocab:Aparcabicis]
-      - [vocab:ID,$(ID),xsd:integer]
-      - [vocab:Estado,$(ESTADO),xsd:string]
-      - [vocab:Fecha-instalacion,$(FECHA-INSTALACION),xsd:DateTime]
-      - [vocab:Modelo,$(MODELO),xsd:string]
-      - [vocab:Nombre-via,$(NOMBRE-VIA),xsd:string]
-      - [vocab:Clase-vial,$(CLASE-VIAL),xsd:string]
-
-          
-  triplesmap3:
+  MapUbicacion:
     sources:
       - [aparcabicis-updated.csv~csv]
     s: http://www.deportesMadrid.es/ubicacion/$(ID)
     po:
-      - [a, vocab:Ubicacion]
-      - [vocab:Barrio,$(BARRIO),xsd:string]
-      - [vocab:Codigo-Postal,$(CODIGO-POSTAL),xsd:integer]
-      - [vocab:Distrito,$(DISTRITO),xsd:string]
+      - [a, base:Ubicacion]
+      - [base:Barrio,$(BARRIO),xsd:string]
+      - [base:Codigo-Postal,$(CODIGO-POSTAL),xsd:integer]
+      - [base:Distrito,$(DISTRITO),xsd:string]
+    
+
+  MapPolideportivo:
+    sources:
+      - [instalaciones-deportivas-updated.csv~csv]
+    s: http://deportesMadrid/ubicacion/{BARRIO}
+    po:
+      - [a, base:Polideportivo]
+      - [base:Nombre,$(NOMBRE),xsd:string]
+      - [base:PK,$(PK),xsd:integer]
+      - [base:Tipo,$(TIPO),xsd:string]
+      - [base:Equipamiento,$(EQUIPAMIENTO),xsd:string]
+      - [base:Transporte,$(TRANSPORTE),xsd:string]
+      - [base:URL,$(CONTENT-URL),xsd:anyURI]
+      - [base:Nombre-via,$(NOMBRE-VIA),xsd:string]
+      - [base:Clase-vial,$(CLASE-VIAL),xsd:string]
+
+      
+      
+  MapAparcabicis:
+    sources:
+      - [aparcabicis-updated.csv~csv]
+    s: http://deportesMadrid/ubicacion/{BARRIO}
+    po:
+      - [a, base:Aparcabicis]
+      - [base:ID,$(ID),xsd:integer]
+      - [base:Estado,$(ESTADO),xsd:string]
+      - [base:Fecha-instalacion,$(FECHA-INSTALACION),xsd:DateTime]
+      - [base:Modelo,$(MODELO),xsd:string]
+      - [base:Nombre-via,$(NOMBRE-VIA),xsd:string]
+      - [base:Clase-vial,$(CLASE-VIAL),xsd:string]
