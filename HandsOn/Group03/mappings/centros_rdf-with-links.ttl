@@ -12,6 +12,7 @@
 @prefix dbo: <https://dbpedia.org/ontology/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 
 @base <https://w3id.org/DogFriendlyMadrid#> .
@@ -22,11 +23,11 @@
 
 <#Address> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./centros-animales-update.csv" ;
+    rml:source "centros-animales-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/City/{AdressID}";
+    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/Address/{AdressID}";
     rr:class dog-loc:address
   ];
   rr:predicateObjectMap [
@@ -45,11 +46,11 @@
 
 <#District> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./centros-animales-update.csv" ;
+    rml:source "centros-animales-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/City/{DISTRITO}";
+    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/District/{DISTRITO}";
     rr:class dog-loc:District
   ];
 
@@ -60,15 +61,22 @@
       rr:datatype xsd:string
       ]
   ];
+  rr:predicateObjectMap [
+    rr:predicate owl:sameAs;
+    rr:objectMap [
+      rml:reference "URI";
+      rr:datatype xsd:anyURI
+      ]
+  ];
 .
 
 <#Street> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./centros-animales-update.csv" ;
+    rml:source "centros-animales-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/City/{NOMBRE DE VIA}";
+    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/Thoroughfare/{NOMBRE DE VIA}";
     rr:class dbo:Street
   ];
 
@@ -97,7 +105,7 @@
 
 <#Vet> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./centros-animales-update.csv" ;
+    rml:source "centros-animales-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
