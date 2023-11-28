@@ -5,13 +5,14 @@
   rdfs: "http://www.w3.org/2000/01/rdf-schema#"
   xsd: "http://www.w3.org/2001/XMLSchema#"
   ns: "http://www.vascomap.com/ontology#"
+  owl: "http://www.w3.org/2002/07/owl#"
 
 
 mappings:	
 
   mapDotacionPolicial:
     sources:
-      - [dotacion_policial-updated.csv~csv]
+      - [dotacion_policial-with-links.csv~csv]
     s: http://www.vascomap.com/resource/DotPol/$(ID)
     po:
       - [a, ns:DotPol]
@@ -22,7 +23,7 @@ mappings:
 
   mapIndiceDelitos:
     sources:
-      - [indice_delitos-updated.csv~csv]
+      - [indice_delitos-with-links.csv~csv]
     s: http://www.vascomap.com/resource/IndDel/$(ID)
     po:
       - [a, ns:IndDel]
@@ -33,7 +34,7 @@ mappings:
 
   mapSeguridadZonas:
     sources:
-      - [seguridad_zonas-updated.csv~csv]
+      - [seguridad_zonas-with-links.csv~csv]
     s: http://www.vascomap.com/resource/SegZon/$(PROVINCIA)
     po:
       - [a, ns:SegZon]
@@ -43,7 +44,7 @@ mappings:
 
   mapInfraccionesPenales:
     sources:
-      - [infracciones_penales-updated.csv~csv]
+      - [infracciones_penales-with-links.csv~csv]
     s: http://www.vascomap.com/resource/InfPen/$(PROVINCIA)
     po:
       - [a, ns:InfPen]
@@ -53,19 +54,21 @@ mappings:
 
   mapProvincia:
     sources:
-      - [dotacion_policial-updated.csv~csv]
+      - [dotacion_policial-with-links.csv~csv]
     s: http://www.vascomap.com/resource/Province/$(PROVINCIA)
     po:
       - [a, ns:Province]
       - [ns:name, $(PROVINCIA)]
       - [ns:has, http://www.vascomap.com/resource/Municipality/$(CODE)~iri]
+      - [owl:sameAs, $(SAME_AS_WIKIDATA_PROVINCIA)~iri]
 
   mapMunicipio:
     sources:
-      - [dotacion_policial-updated.csv~csv]
+      - [dotacion_policial-with-links.csv~csv]
     s: http://www.vascomap.com/resource/Municipality/$(CODE)
     po:
       - [a, ns:Municipality]
       - [ns:name, $(MUNICIPIO)]
       - [ns:code, $(CODE)]	
       - [ns:belongsTo, http://www.vascomap.com/resource/Province/$(PROVINCIA)~iri]
+      - [owl:sameAs, $(SAME_AS_WIKIDATA_MUNICIPIO)~iri]
