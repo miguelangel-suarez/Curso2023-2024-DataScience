@@ -9,9 +9,9 @@ WHERE {
 	?polideportivo base:Tipo 'Centro Deportivo'.
 	?loc base:Codigo-Postal '28024'.
 	?polideportivo base:se_encuentra_en ?loc.
-    ?polideportivo base:Nombre ?nombre_pol .
+    	?polideportivo base:Nombre ?nombre_pol .
 	?aparcabicis base:se_encuentra_en ?loc.
-    ?aparcabicis base:ID ?id_apar.
+    	?aparcabicis base:ID ?id_apar.
 }
 
 
@@ -21,10 +21,10 @@ SELECT ?pk_pol ?id_apar
 WHERE {
 	?loc base:Distrito 'VILLA DE VALLECAS'.
 	?polideportivo base:se_encuentra_en ?loc.
-    ?polideportivo base:PK ?pk_pol.
+    	?polideportivo base:PK ?pk_pol.
 	?aparcabicis base:se_encuentra_en ?loc.
-    ?aparcabicis base:Modelo 'MU-51'.
-    ?aparcabicis base:ID ?id_apar.
+    	?aparcabicis base:Modelo 'MU-51'.
+    	?aparcabicis base:ID ?id_apar.
 }
 
 
