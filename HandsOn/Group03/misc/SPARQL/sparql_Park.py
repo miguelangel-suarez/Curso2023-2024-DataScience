@@ -24,7 +24,7 @@ g = Graph()
 for shortcut, new_namespace in dict_namespaces.items():
     g.namespace_manager.bind(shortcut, new_namespace, override=False)
 
-g.parse("./x.nt",format="nt")
+g.parse("./Park.nt.nt",format="nt")
 
 q1 = prepareQuery('''
 SELECT ?parques

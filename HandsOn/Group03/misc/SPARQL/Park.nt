@@ -4500,7 +4500,6 @@
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/5987289> <http://schema.org/name> "Parque Duque de Ahumada" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/6000510> <http://schema.org/name> "Parque de Peñagrande" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/5999142> <http://schema.org/name> "Parque de la Alcazaba" .
-annel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=3181025c5733e210VgnVCM1000000b205a0aRCRD"^^<http://www.w3.org/2001/XMLSchema#AnyURI> .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/6003192> <http://schema.org/mainEntityOfPage> "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=86803c95f87de210VgnVCM1000000b205a0aRCRD"^^<http://www.w3.org/2001/XMLSchema#AnyURI> .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/10706071> <http://schema.org/mainEntityOfPage> "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1bab840b7ce43610VgnVCM1000001d4a900aRCRD"^^<http://www.w3.org/2001/XMLSchema#AnyURI> .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/5983593> <http://schema.org/mainEntityOfPage> "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1f344f963318e210VgnVCM1000000b205a0aRCRD"^^<http://www.w3.org/2001/XMLSchema#AnyURI> .
@@ -4703,7 +4702,7 @@ annel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=3181025c5733e210VgnVCM1
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/7642234> <http://schema.org/mainEntityOfPage> "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=84c7277160d88410VgnVCM2000000c205a0aRCRD"^^<http://www.w3.org/2001/XMLSchema#AnyURI> .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/5983595> <http://schema.org/mainEntityOfPage> "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1a174f963318e210VgnVCM1000000b205a0aRCRD"^^<http://www.w3.org/2001/XMLSchema#AnyURI> .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/5963151> <http://schema.org/mainEntityOfPage> "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=091b882aacd2e210VgnVCM2000000c205a0aRCRD"^^<http://www.w3.org/2001/XMLSchema#AnyURI> .
-chema.org/name> "Parque Sancho Dávila" .
+<https://w3id.org/DogFriendlyMadrid/info/resource/Park/6007791> <http://schema.org/name> "Parque Sancho Dávila" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/6007791> <http://schema.org/name> "Área Forestal de Tres Cantos" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/5965719> <http://schema.org/name> "Jardines de la Avenida de Brasil" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Park/5966148> <http://schema.org/mainEntityOfPage> "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a7a655b6e783e210VgnVCM1000000b205a0aRCRD"^^<http://www.w3.org/2001/XMLSchema#AnyURI> .

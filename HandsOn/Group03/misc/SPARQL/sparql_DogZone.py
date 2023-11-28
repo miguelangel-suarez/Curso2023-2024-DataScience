@@ -24,12 +24,12 @@ g = Graph()
 for shortcut, new_namespace in dict_namespaces.items():
     g.namespace_manager.bind(shortcut, new_namespace, override=False)
 
-g.parse("./x.nt",format="nt")
+g.parse("./DogZone.nt",format="nt")
 
 q1 = prepareQuery('''
-SELECT ?parques
+SELECT ?zone
 WHERE {
-    ?parques rdfs:type schema-org:Park
+    ?zone rdfs:type schema-org:ID
 }                      
 ''',
 initNs = dict_namespaces
@@ -37,4 +37,4 @@ initNs = dict_namespaces
 
 
 for r in g.query(q1):
-  print(r.parques)
+  print(r.zone)

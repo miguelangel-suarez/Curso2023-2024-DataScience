@@ -24,30 +24,17 @@ g = Graph()
 
 for shortcut, new_namespace in dict_namespaces.items():
     g.namespace_manager.bind(shortcut, new_namespace, override=False)
+g.parse("C:/Users/chapa/OneDrive/Documentos/GitHub/Alex-Curso2023-2024-DataScience/HandsOn/Group03/misc/SPARQL/CareCenter.nt", format="nt")
+# g.parse("./CareCenter.nt",format="nt")
+q1 = prepareQuery('''
+SELECT ?centros
+WHERE {
+    ?centros rdfs:type schema-org: ID
+}                      
+''',
+initNs = dict_namespaces
+)
 
-g.parse("./CareCenter.nt",format="nt")
 
-
-try:
-    g.parse("./CareCenter.nt", format="nt")
-except rdflib.plugins.parsers.ntriples.ParseError as e:
-    print(f"Error parsing N-Triples file: {e}")
-    print(f"Problematic line: {e.line}")
-    
-# try:
-#     q1 = prepareQuery(
-#     '''
-#     SELECT ?centros
-#     WHERE {
-#         ?centros rdf:type schema-org: adressID
-#     }                      
-#     ''',
-#     initNs=dict_namespaces
-# )
-
-#     for r in g.query(q1):
-#         print(r.centros)
-
-# except rdflib.plugins.parsers.ntriples.ParseError as e:
-#     print(f"Error parsing N-Triples file: {e}")
-#     print(f"Problematic line: {e.line}")
+for r in g.query(q1):
+  print(r.centros)
