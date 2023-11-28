@@ -12,9 +12,9 @@ WHERE {
 	?polideportivo pol:Tipo 'Centro Deportivo'.
 	?loc ubi:Codigo-Postal '28024'.
 	?polideportivo ubi:se_encuentra_en ?loc.
-    ?polideportivo pol:Nombre ?nombre_pol .
+    	?polideportivo pol:Nombre ?nombre_pol .
 	?aparcabicis ubi:se_encuentra_en ?loc.
-    ?aparcabicis apar:ID ?id_apar.
+    	?aparcabicis apar:ID ?id_apar.
 }
 
 
@@ -23,13 +23,13 @@ WHERE {
 
 SELECT ?pk_pol ?id_apar
 WHERE {
-    ?distrito rdf:type ubi:Distrito.
+    	?distrito rdf:type ubi:Distrito.
 	?distrito owl:sameAs wd:Q1947988.
 	?polideportivo ubi:se_encuentra_en ?loc.
-    ?polideportivo pol:PK ?pk_pol.
+    	?polideportivo pol:PK ?pk_pol.
 	?aparcabicis ubi:se_encuentra_en ?distrito.
-    ?aparcabicis apar:Modelo 'MU-51'.
-    ?aparcabicis apar:ID ?id_apar.
+    	?aparcabicis apar:Modelo 'MU-51'.
+    	?aparcabicis apar:ID ?id_apar.
 }
 
 
@@ -85,6 +85,6 @@ WHERE {
 	?aparcabicis ubi:se_encuentra_en ?barrio.
   	?polideportivo pol:Nombre ?nombre_pol.
   	?aparcabicis apar:ID ?id_apar.
-    ?barrio owl:sameAs ?link_barrio.
+    	?barrio owl:sameAs ?link_barrio.
 }
 LIMIT 10
