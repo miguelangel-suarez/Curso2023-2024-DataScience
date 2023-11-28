@@ -1,4 +1,5 @@
 # 1. Dado el código postal 28024 devolver los nombres de los polideportivos de tipo centro deportivo y los id de los aparcabicis
+
 SELECT ?nombre_pol ?id_apar 
 WHERE {
 	?polideportivo pol:Tipo 'Centro Deportivo'.
@@ -34,6 +35,7 @@ LIMIT 20
 
 
 #4. Devuelve los id de los aparcabicis que se pueden encontrar en Aluche:
+
 SELECT ?id
 WHERE {
     ?loc ubi:Barrio 'Aluche'.
@@ -43,6 +45,7 @@ WHERE {
 
 
 # 5. Dado la fecha de instalacion 2021-09-21 de los aparcabicis devolver el ID, el barrio y el estado de los aparcabicis
+
 SELECT ?id ?barrio ?Estado
 WHERE {
 	?aparcabicis apar:Fecha-instalacion '2021-09-21'.
@@ -54,6 +57,7 @@ LIMIT 20
 
 
 # 6. Dado un distrito (CHAMARTIN) y filtrando por el nombre del barrio (NUEVA ESPAÑA) devolver el nombre del polideportivo y el ID del aparcabicis
+
 SELECT ?nombre ?id
 WHERE {
   	?loc ubi:Distrito 'CHAMARTIN'.
