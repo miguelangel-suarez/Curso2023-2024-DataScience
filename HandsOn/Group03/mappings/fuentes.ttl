@@ -22,11 +22,11 @@
 
 <#Address> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./papelerascaninas.csv" ;
+    rml:source "./fuentesmascotas-with-links.csv.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/DogGarbageBin/{Adress_ID}";
+    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/City/{address_id}";
     rr:class dog-loc:address
   ];
   
@@ -38,6 +38,18 @@
       ]
   ];
 
+  # rr:predicateObjectMap [
+  #   rr:predicate dog-loc:hasState;
+  #   rr:objectMap [
+  #     rr:parentTriplesMap <#State>
+  #   ]
+  # ];
+  rr:predicateObjectMap [
+    rr:predicate dog-loc:hasCity;
+    rr:objectMap [
+      rr:parentTriplesMap <#City>
+    ]
+  ];
   rr:predicateObjectMap [
     rr:predicate dog-loc:hasNeighborhood;
     rr:objectMap [
@@ -53,21 +65,62 @@
   rr:predicateObjectMap [
     rr:predicate dog-loc:hasThoroughfare;
     rr:objectMap [
-      rr:parentTriplesMap <#Thoroughfare>
+      rr:parentTriplesMap <#Street>
     ]
   ];
 .
 
+# <#State> a rr:TriplesMap;
+#   rml:logicalSource [
+#     rml:source "./fuentesmascotas-with-links.csv.csv" ;
+#     rml:referenceFormulation ql:CSV 
+#   ];
+#   rr:subjectMap [
+#     rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/City/{PROVINCIA}";
+#     rr:class schema-org:State
+#   ];
 
+#   rr:predicateObjectMap [
+#     rr:predicate schema-org:name;
+#     rr:objectMap [
+#       rml:reference "LOCALIDAD";
+#       rr:datatype xsd:string
+#       ]
+#   ];
+# .
 
-
-<#Neighborhood> a rr:TriplesMap;
+<#City> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./papelerascaninas.csv" ;
+    rml:source "./fuentesmascotas-with-links.csv.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/DogGarbageBin/{BARRIO}";
+    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/City/{LOCALIDAD}";
+    rr:class schema-org:City
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema-org:name;
+    rr:objectMap [
+      rml:reference "LOCALIDAD";
+      rr:datatype xsd:string
+      ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate schema-org:containsPlace;
+    rr:objectMap [
+      rr:parentTriplesMap <#DrinkingFountain>
+    ]
+  ];
+.
+
+<#Neighborhood> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "./fuentesmascotas-with-links.csv.csv" ;
+    rml:referenceFormulation ql:CSV 
+  ];
+  rr:subjectMap [
+    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/City/{BARRIO}";
     rr:class dog-loc:Neighborhood
   ];
 
@@ -82,11 +135,11 @@
 
 <#District> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./papelerascaninas.csv" ;
+    rml:source "./fuentesmascotas-with-links.csv.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/DogGarbageBin/{DISTRITO}";
+    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/City/{DISTRITO}";
     rr:class dog-loc:District
   ];
 
@@ -99,14 +152,14 @@
   ];
 .
 
-<#Thoroughfare> a rr:TriplesMap;
+<#Street> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./papelerascaninas.csv" ;
+    rml:source "./fuentesmascotas-with-links.csv.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/DogGarbageBin/{NOM_VIA}";
-    rr:class dbo:Thoroughfare
+    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/City/{NOM_VIA}";
+    rr:class dbo:Street
   ];
 
   rr:predicateObjectMap [
@@ -134,11 +187,11 @@
 
 <#GeoCoordinates> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./papelerascaninas.csv" ;
+    rml:source "./fuentesmascotas-with-links.csv.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/DogGarbageBin/{GEO_ID}";
+    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/City/{ID_GEO}";
     rr:class schema-org:GeoCoordinates
   ];
 
@@ -159,28 +212,20 @@
 .
 
 
-<#DogGarbageBin> a rr:TriplesMap;
+<#DrinkingFountain> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./papelerascaninas.csv" ;
+    rml:source "./fuentesmascotas-with-links.csv.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/DogGarbageBin/{ID}";
-    rr:class :DogGarbageBin
+    rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/DrinkingFountain/{ID}";
+    rr:class dog-ser:DrinkingFountain
   ];
 
   rr:predicateObjectMap [
-    rr:predicate dog-det:ofModelType;
+    rr:predicate dog-det:use;
     rr:objectMap [
-      rml:reference "MODELO";
-      rr:datatype xsd:string
-      ]
-  ];
-  
-  rr:predicateObjectMap [
-    rr:predicate dog-det:hasStatus;
-    rr:objectMap [
-      rml:reference "ESTADO";
+      rml:reference "USO";
       rr:datatype xsd:string
       ]
   ];
@@ -201,5 +246,6 @@
         rr:parentTriplesMap <#GeoCoordinates>
       ]
     ];
+  
 # FIN COMPLICACIONES
 .
