@@ -12,6 +12,7 @@
 @prefix dbo: <https://dbpedia.org/ontology/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 
 @base <https://w3id.org/DogFriendlyMadrid#> .
@@ -22,7 +23,7 @@
 
 <#Address> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./200761-0-parques-jardines-updated.csv" ;
+    rml:source "./200761-0-parques-jardines-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -72,7 +73,7 @@
 
 <#State> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./200761-0-parques-jardines-updated.csv" ;
+    rml:source "./200761-0-parques-jardines-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -83,15 +84,22 @@
   rr:predicateObjectMap [
     rr:predicate schema-org:name;
     rr:objectMap [
-      rml:reference "LOCALIDAD";
+      rml:reference "PROVINCIA";
       rr:datatype xsd:string
+      ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate owl:sameAs;
+    rr:objectMap [
+      rml:reference "PROVINCIA_WIKIDATA";
+      rr:datatype xsd:anyURI
       ]
   ];
 .
 
 <#City> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./200761-0-parques-jardines-updated.csv" ;
+    rml:source "./200761-0-parques-jardines-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -107,6 +115,13 @@
       ]
   ];
   rr:predicateObjectMap [
+    rr:predicate owl:sameAs;
+    rr:objectMap [
+      rml:reference "LOCALIDAD_WIKIDATA";
+      rr:datatype xsd:anyURI
+      ]
+  ];
+  rr:predicateObjectMap [
     rr:predicate schema-org:containsPlace;
     rr:objectMap [
       rr:parentTriplesMap <#Park>
@@ -116,7 +131,7 @@
 
 <#Neighborhood> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./200761-0-parques-jardines-updated.csv" ;
+    rml:source "./200761-0-parques-jardines-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -131,11 +146,18 @@
       rr:datatype xsd:string
       ]
   ];
+  rr:predicateObjectMap [
+    rr:predicate owl:sameAs;
+    rr:objectMap [
+      rml:reference "BARRIO_WIKIDATA";
+      rr:datatype xsd:anyURI
+      ]
+  ];
 .
 
 <#District> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./200761-0-parques-jardines-updated.csv" ;
+    rml:source "./200761-0-parques-jardines-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -150,16 +172,24 @@
       rr:datatype xsd:string
       ]
   ];
+  rr:predicateObjectMap [
+    rr:predicate owl:sameAs;
+    rr:objectMap [
+      rml:reference "DISTRITO_WIKIDATA";
+      rr:datatype xsd:anyURI
+      ]
+  ];
+  
 .
 
 <#Thoroughfare> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./200761-0-parques-jardines-updated.csv" ;
+    rml:source "./200761-0-parques-jardines-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
     rr:template "https://w3id.org/DogFriendlyMadrid/info/resource/Thoroughfare/{NOMBRE-VIA}";
-    rr:class dog-loc:Thoroughfare
+    rr:class dbo:Street
   ];
 
   rr:predicateObjectMap [
@@ -187,7 +217,7 @@
 
 <#GeoCoordinates> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./200761-0-parques-jardines-updated.csv" ;
+    rml:source "./200761-0-parques-jardines-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
@@ -214,7 +244,7 @@
 
 <#Park> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "./200761-0-parques-jardines-updated.csv" ;
+    rml:source "./200761-0-parques-jardines-with-links.csv" ;
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
