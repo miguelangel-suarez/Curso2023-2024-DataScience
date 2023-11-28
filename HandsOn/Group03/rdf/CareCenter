@@ -29,12 +29,16 @@ q1 = prepareQuery(
     '''
     SELECT ?centro
     WHERE {
-        ?centros rdf:type schema-org:ID .
-        ?centros rdfs:label ?centro
+        ?centro rdf:type <http://schema.org/identifier> .
     }
     ''',
     initNs=dict_namespaces
 )
 
-for r in g.query(q1):
-    print(r.centro)
+results = list(g.query(q1))
+
+if not results:
+    print("No results found.")
+else:
+    for r in results:
+        print(r.centro)

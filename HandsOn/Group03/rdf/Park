@@ -23,19 +23,21 @@ g = Graph()
 for shortcut, new_namespace in dict_namespaces.items():
     g.namespace_manager.bind(shortcut, new_namespace, override=False)
 
-g.parse("./DogGarbageBins.nt", format="nt")
+g.parse("./CareCenters.nt", format="nt")
 
 q1 = prepareQuery(
     '''
-    SELECT ?basura
+    SELECT ?centro
     WHERE {
-        ?basura rdf:type schema-org:AdressID .
-        ?basura rdfs:label ?basura
+        ?centros rdf:type schema-org:ID .
+        ?centros rdfs:label ?centro
     }
     ''',
     initNs=dict_namespaces
 )
+
 results = list(g.query(q1))
+
 if not results:
     print("No results found.")
 else:
