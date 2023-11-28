@@ -1,0 +1,90 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#> .
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+PREFIX apar: <http://deportesMadrid/ontologies/Aparcabicis#> .
+PREFIX pol: <http://deportesMadrid/ontologies/Insta_Deportiva#> .
+PREFIX ubi: <http://deportesMadrid/ubicacion#> .
+
+# 1. Dado el código postal 28024 devolver los nombres de los polideportivos de tipo centro deportivo y los id de los
+    aparcabicis.
+
+SELECT ?nombre_pol ?id_apar
+WHERE {
+	?polideportivo pol:Tipo 'Centro Deportivo'.
+	?loc ubi:Codigo-Postal '28024'.
+	?polideportivo ubi:se_encuentra_en ?loc.
+    ?polideportivo pol:Nombre ?nombre_pol .
+	?aparcabicis ubi:se_encuentra_en ?loc.
+    ?aparcabicis apar:ID ?id_apar.
+}
+
+
+# 2. Devolver todos los pk de los polideportivos y los id de aparcabicis de modelo "MU-51" que se encuentren en el
+    distrito "VILLA DE VALLECAS".
+
+SELECT ?pk_pol ?id_apar
+WHERE {
+    ?distrito rdf:type ubi:Distrito.
+	?distrito owl:sameAs wd:Q1947988.
+	?polideportivo ubi:se_encuentra_en ?loc.
+    ?polideportivo pol:PK ?pk_pol.
+	?aparcabicis ubi:se_encuentra_en ?distrito.
+    ?aparcabicis apar:Modelo 'MU-51'.
+    ?aparcabicis apar:ID ?id_apar.
+}
+
+
+# 3. Mostrar el estado de los aparcabicis que su clase vial no sea una avenida.
+
+SELECT DISTINCT ?estado
+WHERE
+    {
+    ?aparcabicis apar:Clase-vial ?clase.
+  FILTER (?clase != "AVENIDA")
+    ?aparcabicis apar:Estado ?estado.
+    }
+LIMIT 20
+
+
+#4. Devuelve los id de los aparcabicis que se pueden encontrar en una calle del barrio Aluche.
+
+SELECT ?id_apar
+WHERE {
+    ?barrio rdf:type ubi:Barrio.
+    ?barrio owl:sameAs wd:Q31140.
+    ?aparcabicis ubi:se_encuentra_en ?barrio.
+    ?aparcabicis apar:Clase-vial 'CALLE'.
+    ?aparcabicis apar:ID ?id_apar.
+}
+
+
+# 5. Dado la fecha de instalacion 2021-09-21 de los aparcabicis devolver el ID, el barrio y el estado de los aparcabicis,
+    y los links a wikidata del barrio.
+
+SELECT ?id ?barrio ?estado ?link_barrio
+WHERE {
+	?aparcabicis apar:Fecha-instalacion '2021-09-21'.
+  	?aparcabicis apar:ID ?id.
+ 	?aparcabicis ubi:se_encuentra_en ?loc.
+ 	?loc ubi:Barrio ?barrio.
+  	?aparcabicis apar:Estado ?estado.
+  	?barrio owl:sameAs ?link_barrio.
+}
+LIMIT 20
+
+
+# 6. Dado un distrito (CHAMARTIN) y filtrando por el nombre del barrio (NUEVA ESPAÑA) devolver el nombre del
+    polideportivo y el ID del aparcabicis, y el link del barrio.
+
+SELECT ?nombre_pol ?id_apar ?link_barrio
+WHERE {
+  	?loc ubi:Distrito ?distrito.
+  	?distrito owl:sameAs wd:Q1766348.
+  	?loc ubi:Barrio ?barrio.
+  FILTER (?barrio == 'NUEVA ESPAÑA')
+	?polideportivo ubi:se_encuentra_en ?barrio.
+	?aparcabicis ubi:se_encuentra_en ?barrio.
+  	?polideportivo pol:Nombre ?nombre_pol.
+  	?aparcabicis apar:ID ?id_apar.
+    ?barrio owl:sameAs ?link_barrio.
+}
+LIMIT 10
