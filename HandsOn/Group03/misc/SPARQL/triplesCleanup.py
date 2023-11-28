@@ -1,7 +1,21 @@
 def has_even_angle_brackets(line):
     count_open = line.count("<")
     count_close = line.count(">")
-    return count_open == count_close
+    
+    if count_open == 0:
+        return False
+    if count_close == 0:
+        return False
+    
+    if len(line) < 10:
+        return False
+
+    if count_open < 2 or count_close < 2:
+        return False
+
+    if count_open == count_close:
+        return True
+    
 
 def get_lines_with_odd_brackets(file_path, output_file_path):
     suspicious_lines = []
@@ -20,8 +34,8 @@ def get_lines_with_odd_brackets(file_path, output_file_path):
 
     return suspicious_lines
 
-input_file_path = 'papeleras.nt'  # Replace with the path to your input file
-output_file_path = 'clean_papeleras.nt'  # Replace with the desired output file path
+input_file_path = 'clean_papelerascaninas_data2.nt'  # Replace with the path to your input file
+output_file_path = 'clean_papelerascaninas_data3.nt'  # Replace with the desired output file path
 result = get_lines_with_odd_brackets(input_file_path, output_file_path)
 
 for line_number, line in result:
