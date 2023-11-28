@@ -2351,7 +2351,6 @@
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/SUECIA> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/MONTE%20AYA> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/ARROYO%20DE%20VALDEBEBAS> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CM" .
-se" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/SECO> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/TRUEBA%20Y%20FERNANDEZ> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/EURO> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "AV" .
@@ -2404,7 +2403,6 @@ se" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/CARLOTA%20O%27NEILL> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/PELICANO> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/ENSANCHE%20DE%20VALLECAS> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "AV" .
-/details#itsVet> "false" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/GINZO%20DE%20LIMIA> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/M-607> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "AT" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/ANDRES%20TORREJON> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
@@ -2457,7 +2455,6 @@ se" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/FLORIDA> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "PO" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/GUTIERRE%20DE%20CETINA> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/MOGAMBO> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
-endlyMadrid/info/ontology/details#itsVet> "true" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/EXTREMADURA> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "PO" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/M-612> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CR" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/GENERAL%20ARRANDO> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
@@ -2563,7 +2560,6 @@ endlyMadrid/info/ontology/details#itsVet> "true" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/TORIJA> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/HIERRO> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/VILLA%20DE%20VALLECAS> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "AV" .
-tology/details#itsVet> "true" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/REAL%20DE%20ARGANDA> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/GENERAL%20PINTOS> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/MOTA%20DEL%20CUERVO> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
@@ -2645,7 +2641,6 @@ tology/details#itsVet> "true" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/VIRGEN%20DE%20LOS%20REYES> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/TORRELAGUNA> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/City/ASCAO> <https://w3id.org/DogFriendlyMadrid/info/ontology/location#isOfStreetType> "CL" .
-d.org/DogFriendlyMadrid/info/ontology/details#itsVet> "false" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Vet/CareCenter_0239> <https://w3id.org/DogFriendlyMadrid/info/ontology/details#itsVet> "true" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Vet/CareCenter_0281> <https://w3id.org/DogFriendlyMadrid/info/ontology/details#itsVet> "true" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/Vet/CareCenter_024> <https://w3id.org/DogFriendlyMadrid/info/ontology/details#itsVet> "true" .

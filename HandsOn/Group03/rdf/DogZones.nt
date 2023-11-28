@@ -433,7 +433,6 @@
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/4996530> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/DogFriendlyMadrid/info/ontology/services#DogZone> .
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/4996527> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/DogFriendlyMadrid/info/ontology/services#DogZone> .
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/4997999> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/DogFriendlyMadrid/info/ontology/services#DogZone> .
-fier> "4996523" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/5005553> <http://schema.org/identifier> "5005553" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/3570068> <http://schema.org/identifier> "3570068" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/3575538> <http://schema.org/identifier> "3575538" .
@@ -754,7 +753,6 @@ fier> "4996523" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/3570068> <https://w3id.org/DogFriendlyMadrid/info/ontology/details#DogGames> "1"^^<http://www.w3.org/2001/XMLSchema#float> .
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/4996528> <https://w3id.org/DogFriendlyMadrid/info/ontology/details#DogGames> "0"^^<http://www.w3.org/2001/XMLSchema#float> .
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/4998023> <https://w3id.org/DogFriendlyMadrid/info/ontology/details#DogGames> "0"^^<http://www.w3.org/2001/XMLSchema#float> .
-71> <https://w3id.org/DogFriendlyMadrid/info/ontology/details#hasStatus> "OPERATIVO" .
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/4996484> <https://w3id.org/DogFriendlyMadrid/info/ontology/details#DogGames> "1"^^<http://www.w3.org/2001/XMLSchema#float> .
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/5237097> <https://w3id.org/DogFriendlyMadrid/info/ontology/details#DogGames> "1"^^<http://www.w3.org/2001/XMLSchema#float> .
 <https://w3id.org/DogFriendlyMadrid/info/resource/DogZone/5003417> <https://w3id.org/DogFriendlyMadrid/info/ontology/details#DogGames> "6"^^<http://www.w3.org/2001/XMLSchema#float> .
