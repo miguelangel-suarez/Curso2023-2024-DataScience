@@ -798,29 +798,113 @@
     "description": "Create column ID_GEO at index 1 based on column ﻿ID using expression jython:return value+\"_geo\""
   },
   {
-    "op": "core/column-reorder",
-    "columnNames": [
-      "﻿ID",
-      "DESC_CLASIFICACION",
-      "address_id",
-      "LOCALIDAD",
-      "COD_POSTAL",
-      "COD_BARRIO",
-      "BARRIO",
-      "links_barrio",
-      "COD_DISTRITO",
-      "DISTRITO",
-      "links_distrito",
-      "TIPO_VIA",
-      "NOM_VIA",
-      "NUM_VIA",
-      "ESTADO",
-      "ID_GEO",
-      "LATITUD",
-      "LONGITUD",
-      "USO",
-      "MODELO"
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "DESC_CLASIFICACION",
+    "expression": "grel:\"https://w3id.org/DogFriendlyMadrid/info/ontology/services#Services\"",
+    "onError": "set-to-blank",
+    "newColumnName": "TYPE_SERVICE",
+    "columnInsertIndex": 3,
+    "description": "Create column TYPE_SERVICE at index 3 based on column DESC_CLASIFICACION using expression grel:\"https://w3id.org/DogFriendlyMadrid/info/ontology/services#Services\""
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TYPE_SERVICE",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column TYPE_SERVICE using expression value.toString()"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "TYPE_SERVICE",
+    "description": "Remove column TYPE_SERVICE"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COD_BARRIO",
+    "description": "Remove column COD_BARRIO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COD_DISTRITO",
+    "description": "Remove column COD_DISTRITO"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "links_barrio",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column links_barrio using expression value.toString()"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "links_barrio",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "https://wikidata.org/entity/Q10283284"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "http://wikidata.org/entity/Q10283284"
+      }
     ],
-    "description": "Reorder columns"
+    "description": "Mass edit cells in column links_barrio"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "links_barrio",
+    "description": "Remove column links_barrio"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "BARRIO",
+    "expression": "grel:\"http://wikidata.org/entity/\"+cell.recon.match.id",
+    "onError": "set-to-blank",
+    "newColumnName": "links_barrio",
+    "columnInsertIndex": 7,
+    "description": "Create column links_barrio at index 7 based on column BARRIO using expression grel:\"http://wikidata.org/entity/\"+cell.recon.match.id"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "links_distrito",
+    "description": "Remove column links_distrito"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "DISTRITO",
+    "expression": "grel:\"http://wikidata.org/entity/\"+cell.recon.match.id",
+    "onError": "set-to-blank",
+    "newColumnName": "links_distrito",
+    "columnInsertIndex": 9,
+    "description": "Create column links_distrito at index 9 based on column DISTRITO using expression grel:\"http://wikidata.org/entity/\"+cell.recon.match.id"
   }
 ]

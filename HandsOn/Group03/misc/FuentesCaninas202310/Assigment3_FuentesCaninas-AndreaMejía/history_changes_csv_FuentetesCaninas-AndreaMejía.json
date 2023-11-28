@@ -783,5 +783,15 @@
     "oldColumnName": "Loc",
     "newColumnName": "LOCALIDAD",
     "description": "Rename column Loc to LOCALIDAD"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COD_BARRIO",
+    "description": "Remove column COD_BARRIO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COD_DISTRITO",
+    "description": "Remove column COD_DISTRITO"
   }
 ]

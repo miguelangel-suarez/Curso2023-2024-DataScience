@@ -20,8 +20,8 @@ def get_lines_with_odd_brackets(file_path, output_file_path):
 
     return suspicious_lines
 
-input_file_path = 'papeleras.nt'  # Replace with the path to your input file
-output_file_path = 'clean_papeleras.nt'  # Replace with the desired output file path
+input_file_path = fr"C:\Universidad2_año\Trabajo_wed_Semantica\Curso2023-2024-DataScience\HandsOn\Group03\misc\FuentesCaninas202310\Assigment4_FuentesCaninas-AndreaMejia\rdf\papelerascaninas_data.nt"  # Replace with the path to your input file
+output_file_path = fr'C:\Universidad2_año\Trabajo_wed_Semantica\Curso2023-2024-DataScience\HandsOn\Group03\misc\FuentesCaninas202310\Assigment4_FuentesCaninas-AndreaMejia\rdf\papelerascaninas_data_clean.nt'  # Replace with the desired output file path
 result = get_lines_with_odd_brackets(input_file_path, output_file_path)
 
 for line_number, line in result:
