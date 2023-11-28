@@ -19,10 +19,22 @@ ns:has rdf:type owl:ObjectProperty ;
        rdfs:range ns:Municipality .
 
 
-###  http://www.vascomap.com/ontology#takesPlaceIn
-ns:takesPlaceIn rdf:type owl:ObjectProperty ;
-                rdfs:domain ns:Observation ;
-                rdfs:range ns:Province .
+###  http://www.vascomap.com/ontology#takesPlaceInProv
+ns:takesPlaceInProv rdf:type owl:ObjectProperty ;
+                    rdfs:domain ns:Observation ;
+                    rdfs:range ns:Province .
+
+
+###  http://www.vascomap.com/resource/Municipality/belongsTo
+<http://www.vascomap.com/resource/Municipality/belongsTo> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain ns:Municipality ;
+                                                          rdfs:range ns:Province .
+
+
+###  http://www.vascomap.com/resource/Municipality/takesPlaceInMun
+<http://www.vascomap.com/resource/Municipality/takesPlaceInMun> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain ns:Observation ;
+                                                                rdfs:range ns:Municipality .
 
 
 #################################################################

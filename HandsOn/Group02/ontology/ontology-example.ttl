@@ -19,10 +19,22 @@ ns:has rdf:type owl:ObjectProperty ;
        rdfs:range ns:Municipality .
 
 
-###  http://www.vascomap.com/ontology#takesPlaceIn
-ns:takesPlaceIn rdf:type owl:ObjectProperty ;
-                rdfs:domain ns:Observation ;
-                rdfs:range ns:Province .
+###  http://www.vascomap.com/ontology#takesPlaceInProv
+ns:takesPlaceInProv rdf:type owl:ObjectProperty ;
+                    rdfs:domain ns:Observation ;
+                    rdfs:range ns:Province .
+
+
+###  http://www.vascomap.com/resource/Municipality/belongsTo
+<http://www.vascomap.com/resource/Municipality/belongsTo> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain ns:Municipality ;
+                                                          rdfs:range ns:Province .
+
+
+###  http://www.vascomap.com/resource/Municipality/takesPlaceInMun
+<http://www.vascomap.com/resource/Municipality/takesPlaceInMun> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain ns:Observation ;
+                                                                rdfs:range ns:Municipality .
 
 
 #################################################################
@@ -97,7 +109,8 @@ ns:SegZon rdf:type owl:Class ;
 ###  http://www.vascomap.com/resource/DotPol/48001DP
 <http://www.vascomap.com/resource/DotPol/48001DP> rdf:type owl:NamedIndividual ,
                                                            ns:DotPol ;
-                                                  ns:takesPlaceIn <http://www.vascomap.com/resource/Province/Biscay> ;
+                                                  ns:takesPlaceInProv <http://www.vascomap.com/resource/Province/Biscay> ;
+                                                  <http://www.vascomap.com/resource/Municipality/takesPlaceInMun> <http://www.vascomap.com/resource/Municipality/48001> ;
                                                   ns:id "48001DP" ;
                                                   ns:value "0.79"^^xsd:float .
 
@@ -105,13 +118,13 @@ ns:SegZon rdf:type owl:Class ;
 ###  http://www.vascomap.com/resource/Municipality/48001
 <http://www.vascomap.com/resource/Municipality/48001> rdf:type owl:NamedIndividual ,
                                                                ns:Municipality ;
+                                                      <http://www.vascomap.com/resource/Municipality/belongsTo> <http://www.vascomap.com/resource/Province/Biscay> ;
                                                       ns:code 48001 ;
                                                       ns:name "Abadiño" .
 
 
 ###  http://www.vascomap.com/resource/Province/Biscay
-<http://www.vascomap.com/resource/Province/Biscay> rdf:type owl:NamedIndividual ,
-                                                            ns:Province ;
+<http://www.vascomap.com/resource/Province/Biscay> rdf:type owl:NamedIndividual ;
                                                    ns:has <http://www.vascomap.com/resource/Municipality/48001> ;
                                                    ns:name "Biscay" .
 
