@@ -23,18 +23,30 @@ g = Graph()
 for shortcut, new_namespace in dict_namespaces.items():
     g.namespace_manager.bind(shortcut, new_namespace, override=False)
 
-g.parse("./Park.nt", format="nt")
+g.parse("rdf/DogZones-with-links.nt",format="nt")
 
-q1 = prepareQuery(
-    '''
-    SELECT ?parques
-    WHERE {
-        ?centros rdf:type schema-org:Park .
-        ?centros rdfs:label ?parques
-    }
-    ''',
-    initNs=dict_namespaces
+q1 = prepareQuery('''
+SELECT ?zone ?dis
+WHERE {
+    ?zone rdf:type ?dis
+FILTER(?dis = <https://w3id.org/DogFriendlyMadrid/info/ontology/location#District>)
+}
+''',
+initNs = dict_namespaces
 )
 
 for r in g.query(q1):
-    print(r.parques)
+    print(r.zone, r.dis)
+
+#query with links
+q2 = prepareQuery('''
+SELECT ?zone ?wiki
+WHERE {
+    ?zone owl:sameAs ?wiki
+}
+''',
+initNs = dict_namespaces
+)
+
+for r in g.query(q2):
+  print(r.zone, r.wiki)
