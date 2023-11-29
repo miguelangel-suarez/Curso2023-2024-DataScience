@@ -1,13 +1,10 @@
-'''
-    SELECT ?park
+SELECT ?park
     WHERE {
         ?park rdf:type schema-org:Park
     }
-'''
 
-'''
-    SELECT (COUNT(?park) as ?park_count)
+
+SELECT (COUNT(?park) as ?park_count)
     WHERE {
         ?park rdf:type schema-org:Park
     }
-'''
