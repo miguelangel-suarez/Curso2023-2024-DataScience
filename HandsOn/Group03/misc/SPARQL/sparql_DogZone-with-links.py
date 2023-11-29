@@ -24,17 +24,16 @@ g = Graph()
 for shortcut, new_namespace in dict_namespaces.items():
     g.namespace_manager.bind(shortcut, new_namespace, override=False)
 
-g.parse("misc/SPARQL/DogZone.nt",format="nt")
+g.parse("rdf/DogZones-with-links.nt",format="nt")
 
 q1 = prepareQuery('''
-SELECT ?zone ?dis
+SELECT ?zone ?wiki
 WHERE {
-    ?zone rdf:type ?dis
-FILTER(?dis = <https://w3id.org/DogFriendlyMadrid/info/ontology/location#District>)
+    ?zone owl:sameAs ?wiki
 }
 ''',
 initNs = dict_namespaces
 )
 
 for r in g.query(q1):
-  print(r.zone, r.dis)
+  print(r.zone, r.wiki)
