@@ -5,6 +5,7 @@
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix map: <http://mapping.example.com/> .
 @prefix as: <https://www.w3.org/ns/activitystreams#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix ns: <http://www.vascomap.com/ontology#> .
@@ -30,13 +31,13 @@ map:map_mapInfraccionesPenales_000 rml:logicalSource map:source_003 ;
 map:map_mapMunicipio_000 rml:logicalSource map:source_005 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "mapMunicipio" ;
-	rr:predicateObjectMap map:pom_021, map:pom_022, map:pom_023, map:pom_024 ;
+	rr:predicateObjectMap map:pom_022, map:pom_023, map:pom_024, map:pom_025, map:pom_026 ;
 	rr:subjectMap map:s_005 .
 
 map:map_mapProvincia_000 rml:logicalSource map:source_004 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "mapProvincia" ;
-	rr:predicateObjectMap map:pom_018, map:pom_019, map:pom_020 ;
+	rr:predicateObjectMap map:pom_018, map:pom_019, map:pom_020, map:pom_021 ;
 	rr:subjectMap map:s_004 .
 
 map:map_mapSeguridadZonas_000 rml:logicalSource map:source_002 ;
@@ -133,20 +134,28 @@ map:om_020 rdf:type rr:ObjectMap ;
 	rr:template "http://www.vascomap.com/resource/Municipality/{CODE}" ;
 	rr:termType rr:IRI .
 
-map:om_021 rdf:type rr:ObjectMap ;
+map:om_021 rml:reference "SAME_AS_WIKIDATA_PROVINCIA" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:IRI .
+
+map:om_022 rdf:type rr:ObjectMap ;
 	rr:constant ns:Municipality ;
 	rr:termType rr:IRI .
 
-map:om_022 rml:reference "MUNICIPIO" ;
+map:om_023 rml:reference "MUNICIPIO" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_023 rml:reference "CODE" ;
+map:om_024 rml:reference "CODE" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_024 rdf:type rr:ObjectMap ;
+map:om_025 rdf:type rr:ObjectMap ;
 	rr:template "http://www.vascomap.com/resource/Province/{PROVINCIA}" ;
+	rr:termType rr:IRI .
+
+map:om_026 rml:reference "SAME_AS_WIKIDATA_MUNICIPIO" ;
+	rdf:type rr:ObjectMap ;
 	rr:termType rr:IRI .
 
 map:pm_000 rdf:type rr:PredicateMap ;
@@ -213,16 +222,22 @@ map:pm_020 rdf:type rr:PredicateMap ;
 	rr:constant ns:has .
 
 map:pm_021 rdf:type rr:PredicateMap ;
-	rr:constant rdf:type .
+	rr:constant owl:sameAs .
 
 map:pm_022 rdf:type rr:PredicateMap ;
-	rr:constant ns:name .
+	rr:constant rdf:type .
 
 map:pm_023 rdf:type rr:PredicateMap ;
-	rr:constant ns:code .
+	rr:constant ns:name .
 
 map:pm_024 rdf:type rr:PredicateMap ;
+	rr:constant ns:code .
+
+map:pm_025 rdf:type rr:PredicateMap ;
 	rr:constant ns:belongsTo .
+
+map:pm_026 rdf:type rr:PredicateMap ;
+	rr:constant owl:sameAs .
 
 map:pom_000 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_000 ;
@@ -324,6 +339,14 @@ map:pom_024 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_024 ;
 	rr:predicateMap map:pm_024 .
 
+map:pom_025 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_025 ;
+	rr:predicateMap map:pm_025 .
+
+map:pom_026 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_026 ;
+	rr:predicateMap map:pm_026 .
+
 map:rules_000 <http://rdfs.org/ns/void#exampleResource> map:map_mapDotacionPolicial_000, map:map_mapIndiceDelitos_000, map:map_mapInfraccionesPenales_000, map:map_mapMunicipio_000, map:map_mapProvincia_000, map:map_mapSeguridadZonas_000 ;
 	rdf:type <http://rdfs.org/ns/void#Dataset> .
 
@@ -346,26 +369,26 @@ map:s_005 rdf:type rr:SubjectMap ;
 	rr:template "http://www.vascomap.com/resource/Municipality/{CODE}" .
 
 map:source_000 rml:referenceFormulation ql:CSV ;
-	rml:source "dotacion_policial-updated.csv" ;
+	rml:source "dotacion_policial-with-links.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_001 rml:referenceFormulation ql:CSV ;
-	rml:source "indice_delitos-updated.csv" ;
+	rml:source "indice_delitos-with-links.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_002 rml:referenceFormulation ql:CSV ;
-	rml:source "seguridad_zonas-updated.csv" ;
+	rml:source "seguridad_zonas-with-links.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_003 rml:referenceFormulation ql:CSV ;
-	rml:source "infracciones_penales-updated.csv" ;
+	rml:source "infracciones_penales-with-links.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_004 rml:referenceFormulation ql:CSV ;
-	rml:source "dotacion_policial-updated.csv" ;
+	rml:source "dotacion_policial-with-links.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_005 rml:referenceFormulation ql:CSV ;
-	rml:source "dotacion_policial-updated.csv" ;
+	rml:source "dotacion_policial-with-links.csv" ;
 	rdf:type rml:LogicalSource .
 
