@@ -11,9 +11,7 @@ base:Barrio a owl:DatatypeProperty ;
     rdfs:domain base:Ubicacion .
 
 base:Clase-vial a owl:DatatypeProperty ;
-    rdfs:label "clase-vial" ;
-    rdfs:domain base:Aparcabicis,
-        base:Polideportivo .
+    rdfs:label "clase-vial" .
 
 base:Codigo-Postal a owl:DatatypeProperty ;
     rdfs:label "codigo- postal" ;
@@ -48,9 +46,7 @@ base:Nombre a owl:DatatypeProperty ;
     rdfs:domain base:Polideportivo .
 
 base:Nombre-via a owl:DatatypeProperty ;
-    rdfs:label "nombre-via" ;
-    rdfs:domain base:Aparcabicis,
-        base:Polideportivo .
+    rdfs:label "nombre-via" .
 
 base:PK a owl:DatatypeProperty ;
     rdfs:label "p k" ;
