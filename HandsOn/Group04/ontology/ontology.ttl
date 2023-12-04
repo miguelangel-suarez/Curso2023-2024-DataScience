@@ -7,61 +7,61 @@ base: a owl:Ontology ;
     mod:createdWith <https://chowlk.linkeddata.es/> .
 
 base:Barrio a owl:DatatypeProperty ;
-    rdfs:label "barrio" ;
+    rdfs:label "Barrio" ;
     rdfs:domain base:Ubicacion .
 
 base:Clase-vial a owl:DatatypeProperty ;
-    rdfs:label "clase-vial" .
+    rdfs:label "Clase-vial" .
 
 base:Codigo-Postal a owl:DatatypeProperty ;
-    rdfs:label "codigo- postal" ;
+    rdfs:label "Codigo-Postal" ;
     rdfs:domain base:Ubicacion .
 
 base:Distrito a owl:DatatypeProperty ;
-    rdfs:label "distrito" ;
+    rdfs:label "Distrito" ;
     rdfs:domain base:Ubicacion .
 
 base:Equipamiento a owl:DatatypeProperty ;
-    rdfs:label "equipamiento" ;
+    rdfs:label "Equipamiento" ;
     rdfs:domain base:Polideportivo .
 
 base:Estado a owl:DatatypeProperty ;
-    rdfs:label "estado" ;
+    rdfs:label "Estado" ;
     rdfs:domain base:Aparcabicis .
 
 base:Fecha-instalacion a owl:DatatypeProperty ;
-    rdfs:label "fecha-instalacion" ;
+    rdfs:label "Fecha-instalacion" ;
     rdfs:domain base:Aparcabicis .
 
 base:ID a owl:DatatypeProperty ;
-    rdfs:label "i d" ;
+    rdfs:label "ID" ;
     rdfs:domain base:Aparcabicis .
 
 base:Modelo a owl:DatatypeProperty ;
-    rdfs:label "modelo" ;
+    rdfs:label "Modelo" ;
     rdfs:domain base:Aparcabicis .
 
 base:Nombre a owl:DatatypeProperty ;
-    rdfs:label "nombre" ;
+    rdfs:label "Nombre" ;
     rdfs:domain base:Polideportivo .
 
 base:Nombre-via a owl:DatatypeProperty ;
-    rdfs:label "nombre-via" .
+    rdfs:label "Nombre-via" .
 
 base:PK a owl:DatatypeProperty ;
-    rdfs:label "p k" ;
+    rdfs:label "PK" ;
     rdfs:domain base:Polideportivo .
 
 base:Tipo a owl:DatatypeProperty ;
-    rdfs:label "tipo" ;
+    rdfs:label "Tipo" ;
     rdfs:domain base:Polideportivo .
 
 base:Transporte a owl:DatatypeProperty ;
-    rdfs:label "transporte" ;
+    rdfs:label "Transporte" ;
     rdfs:domain base:Polideportivo .
 
 base:URL a owl:DatatypeProperty ;
-    rdfs:label "u r l" ;
+    rdfs:label "URL" ;
     rdfs:domain base:Polideportivo .
 
 base:se_encuentra_en a owl:ObjectProperty ;
