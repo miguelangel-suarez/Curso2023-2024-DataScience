@@ -2,7 +2,6 @@
 @prefix mod: <https://w3id.org/mod#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix ubi: <http://www.owl-ontologies.com/ubi#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
@@ -30,23 +29,17 @@ base:Barrio a owl:DatatypeProperty ;
     rdfs:domain base:Ubicacion .
 
 base:CALLE a owl:DatatypeProperty ;
-    rdfs:label "c a l l e" ;
-    rdfs:domain base:Aparcabicis,
-        base:Polideportivo .
+    rdfs:label "c a l l e" .
 
 base:CASINO a owl:DatatypeProperty ;
-    rdfs:label "c a s i n o" ;
-    rdfs:domain base:Aparcabicis,
-        base:Polideportivo .
+    rdfs:label "c a s i n o" .
 
 base:CENTRO a owl:DatatypeProperty ;
     rdfs:label "c e n t r o" ;
     rdfs:domain base:Ubicacion .
 
 base:Clase-vial a owl:DatatypeProperty ;
-    rdfs:label "clase-vial" ;
-    rdfs:domain base:Aparcabicis,
-        base:Polideportivo .
+    rdfs:label "clase-vial" .
 
 base:Codigo-Postal a owl:DatatypeProperty ;
     rdfs:label "codigo- postal" ;
@@ -98,9 +91,7 @@ base:Nombre a owl:DatatypeProperty ;
     rdfs:domain base:Polideportivo .
 
 base:Nombre-via a owl:DatatypeProperty ;
-    rdfs:label "nombre-via" ;
-    rdfs:domain base:Aparcabicis,
-        base:Polideportivo .
+    rdfs:label "nombre-via" .
 
 base:OPERATIVO a owl:DatatypeProperty ;
     rdfs:label "o p e r a t i v o" ;
@@ -132,7 +123,7 @@ base:se_encuentra_en a owl:ObjectProperty ;
         base:Polideportivo ;
     rdfs:range base:Ubicacion .
 
-ubi:se_encuentra_en a owl:ObjectProperty ;
+base:se_encuentra_en a owl:ObjectProperty ;
     rdfs:label "se_encuentra_en" ;
     rdfs:domain base:Aparcabicis ;
     rdfs:range base:Ubicacion .
