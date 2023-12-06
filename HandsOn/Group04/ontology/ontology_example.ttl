@@ -25,92 +25,92 @@ base:5176409 a owl:DatatypeProperty ;
     rdfs:domain base:Aparcabicis .
 
 base:Barrio a owl:DatatypeProperty ;
-    rdfs:label "barrio" ;
+    rdfs:label "Barrio" ;
     rdfs:domain base:Ubicacion .
 
 base:CALLE a owl:DatatypeProperty ;
-    rdfs:label "c a l l e" .
+    rdfs:label "CALLE" .
 
 base:CASINO a owl:DatatypeProperty ;
-    rdfs:label "c a s i n o" .
+    rdfs:label "CASINO" .
 
 base:CENTRO a owl:DatatypeProperty ;
-    rdfs:label "c e n t r o" ;
+    rdfs:label "CENTRO" ;
     rdfs:domain base:Ubicacion .
 
-base:Clase-vial a owl:DatatypeProperty ;
-    rdfs:label "clase-vial" .
+base:tiene_clase-vial a owl:DatatypeProperty ;
+    rdfs:label "tiene_clase-vial" .
 
-base:Codigo-Postal a owl:DatatypeProperty ;
-    rdfs:label "codigo- postal" ;
+base:tiene_codigo-postal a owl:DatatypeProperty ;
+    rdfs:label "tiene_codigo-postal" ;
     rdfs:domain base:Ubicacion .
 
-base:Distrito a owl:DatatypeProperty ;
-    rdfs:label "distrito" ;
+base:tiene_distrito a owl:DatatypeProperty ;
+    rdfs:label "tiene_distrito" ;
     rdfs:domain base:Ubicacion .
 
 base:EMBAJADORES a owl:DatatypeProperty ;
-    rdfs:label "e m b a j a d o r e s" ;
+    rdfs:label "EMBAJADORES" ;
     rdfs:domain base:Ubicacion .
 
-base:Equipamiento a owl:DatatypeProperty ;
-    rdfs:label "equipamiento" ;
+base:tiene_equipamiento a owl:DatatypeProperty ;
+    rdfs:label "tiene_equipamiento" ;
     rdfs:domain base:Polideportivo .
 
-base:Estado a owl:DatatypeProperty ;
-    rdfs:label "estado" ;
+base:tiene_estado a owl:DatatypeProperty ;
+    rdfs:label "tiene_estado" ;
     rdfs:domain base:Aparcabicis .
 
-base:Fecha-instalacion a owl:DatatypeProperty ;
-    rdfs:label "fecha-instalacion" ;
+base:tiene_fecha-instalacion a owl:DatatypeProperty ;
+    rdfs:label "tiene_fecha-instalacion" ;
     rdfs:domain base:Aparcabicis .
 
-base:ID a owl:DatatypeProperty ;
-    rdfs:label "i d" ;
+base:tiene_id a owl:DatatypeProperty ;
+    rdfs:label "tiene_id" ;
     rdfs:domain base:Aparcabicis .
 
-base:Instalación a owl:DatatypeProperty ;
-    rdfs:label "instalación" ;
+base:Instalacion a owl:DatatypeProperty ;
+    rdfs:label "Instalacion" ;
     rdfs:domain base:Polideportivo .
 
 base:MU-51 a owl:DatatypeProperty ;
-    rdfs:label "m u-51" ;
+    rdfs:label "MU-51" ;
     rdfs:domain base:Aparcabicis .
 
 base:Metro a owl:DatatypeProperty ;
-    rdfs:label "metro" ;
+    rdfs:label "Metro" ;
     rdfs:domain base:Polideportivo ;
     rdfs:range xsd:Embajadores .
 
-base:Modelo a owl:DatatypeProperty ;
-    rdfs:label "modelo" ;
+base:tiene_modelo a owl:DatatypeProperty ;
+    rdfs:label "tiene_modelo" ;
     rdfs:domain base:Aparcabicis .
 
-base:Nombre a owl:DatatypeProperty ;
-    rdfs:label "nombre" ;
+base:tiene_nombre a owl:DatatypeProperty ;
+    rdfs:label "tiene-nombre" ;
     rdfs:domain base:Polideportivo .
 
-base:Nombre-via a owl:DatatypeProperty ;
-    rdfs:label "nombre-via" .
+base:tiene_nombre-numero-via a owl:DatatypeProperty ;
+    rdfs:label "tiene_nombre-numero-via" .
 
 base:OPERATIVO a owl:DatatypeProperty ;
-    rdfs:label "o p e r a t i v o" ;
+    rdfs:label "OPERATIVO" ;
     rdfs:domain base:Aparcabicis .
 
-base:PK a owl:DatatypeProperty ;
-    rdfs:label "p k" ;
+base:tiene_pk a owl:DatatypeProperty ;
+    rdfs:label "tiene_pk" ;
     rdfs:domain base:Polideportivo .
 
-base:Tipo a owl:DatatypeProperty ;
-    rdfs:label "tipo" ;
+base:tiene_tipo a owl:DatatypeProperty ;
+    rdfs:label "tiene_tipo" ;
     rdfs:domain base:Polideportivo .
 
-base:Transporte a owl:DatatypeProperty ;
-    rdfs:label "transporte" ;
+base:tiene_transporte a owl:DatatypeProperty ;
+    rdfs:label "tiene_transporte" ;
     rdfs:domain base:Polideportivo .
 
-base:URL a owl:DatatypeProperty ;
-    rdfs:label "u r l" ;
+base:tiene_url a owl:DatatypeProperty ;
+    rdfs:label "tiene_url" ;
     rdfs:domain base:Polideportivo .
 
 base:http a owl:DatatypeProperty ;
@@ -119,8 +119,7 @@ base:http a owl:DatatypeProperty ;
 
 base:se_encuentra_en a owl:ObjectProperty ;
     rdfs:label "se_encuentra_en" ;
-    rdfs:domain base:Aparcabicis,
-        base:Polideportivo ;
+    rdfs:domain base:Polideportivo ;
     rdfs:range base:Ubicacion .
 
 base:se_encuentra_en a owl:ObjectProperty ;
