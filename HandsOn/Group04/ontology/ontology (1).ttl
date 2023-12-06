@@ -1,4 +1,4 @@
- @prefix base: <http://deportesMadrid/ontology#> .
+@prefix base: <http://deportesMadrid/ontology#> .
 @prefix mod: <https://w3id.org/mod#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -17,9 +17,7 @@ base:tiene_barrio a owl:DatatypeProperty ;
     rdfs:domain base:Ubicacion .
 
 base:tiene_clase-vial a owl:DatatypeProperty ;
-    rdfs:label "tiene_clase-vial" ;
-    rdfs:domain base:Aparcabicis,
-        base:Polideportivo .
+    rdfs:label "tiene_clase-vial" .
 
 base:tiene_codigo-postal a owl:DatatypeProperty ;
     rdfs:label "tiene_codigo-postal" ;
@@ -54,9 +52,7 @@ base:tiene_nombre a owl:DatatypeProperty ;
     rdfs:domain base:Polideportivo .
 
 base:tiene_nombre-numero-via a owl:DatatypeProperty ;
-    rdfs:label "tiene_nombre-numero-via" ;
-    rdfs:domain base:Aparcabicis,
-        base:Polideportivo .
+    rdfs:label "tiene_nombre-numero-via" .
 
 base:tiene_pk a owl:DatatypeProperty ;
     rdfs:label "tiene_pk" ;
