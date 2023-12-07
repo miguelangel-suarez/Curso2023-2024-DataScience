@@ -19,21 +19,24 @@
   rr:predicateObjectMap [
     rr:predicate base:tiene_barrio;
     rr:objectMap [
-      rml:reference "BARRIO"
+      rml:reference "BARRIO";
+      rr:datatype xsd:string
       ]
   ];
 
   rr:predicateObjectMap [
     rr:predicate base:tiene_codigo-postal;
     rr:objectMap [
-      rml:reference "CODIGO-POSTAL"
+      rml:reference "CODIGO-POSTAL";
+      rr:datatype xsd:integer
       ]
   ];
 
     rr:predicateObjectMap [
     rr:predicate base:tiene_distrito;
     rr:objectMap [
-      rml:reference "DISTRITO"
+      rml:reference "DISTRITO";
+      rr:datatype xsd:string
       ]
   ].
 
@@ -50,7 +53,8 @@
   rr:predicateObjectMap [
     rr:predicate base:tiene_nombre;
     rr:objectMap [
-      rml:reference "NOMBRE"
+      rml:reference "NOMBRE";
+      rr:datatype xsd:string
       ]
   ];
 
@@ -58,28 +62,31 @@
     rr:predicate base:tiene_pk;
     rr:objectMap [
       rml:reference "PK";
-      rr:datatype xsd:string
+      rr:datatype xsd:integer
     ]
   ];
 
     rr:predicateObjectMap [
     rr:predicate base:tiene_tipo;
     rr:objectMap [
-      rml:reference "TIPO"
+      rml:reference "TIPO";
+      rr:datatype xsd:string
       ]
   ];
 
     rr:predicateObjectMap [
     rr:predicate base:tiene_equipamiento;
     rr:objectMap [
-      rml:reference "EQUIPAMIENTO"
+      rml:reference "EQUIPAMIENTO";
+      rr:datatype xsd:string
       ]
   ];
 
     rr:predicateObjectMap [
     rr:predicate base:tiene_transporte;
     rr:objectMap [
-      rml:reference "TRANSPORTE"
+      rml:reference "TRANSPORTE";
+      rr:datatype xsd:string
       ]
   ];
 
@@ -87,20 +94,23 @@
     rr:predicate base:tiene_url;
     rr:objectMap [
       rml:reference "CONTENT-URL";
+      rr:datatype xsd:anyURI
       ]
   ];
 
     rr:predicateObjectMap [
     rr:predicate base:tiene_nombre-numero-via;
     rr:objectMap [
-      rml:reference "NOMBRE-VIA"
+      rml:reference "NOMBRE-VIA";
+      rr:datatype xsd:string
       ]
   ];
 
     rr:predicateObjectMap [
     rr:predicate base:tiene_clase-vial;
     rr:objectMap [
-      rml:reference "CLASE-VIAL"
+      rml:reference "CLASE-VIAL";
+      rr:datatype xsd:string
       ]
   ];
 
@@ -126,7 +136,7 @@
     rr:predicate base:tiene_id;
     rr:objectMap [
       rml:reference "ID";
-      rr:datatype xsd:string
+      rr:datatype xsd:integer
     ]
   ];
     rr:predicateObjectMap [
@@ -146,19 +156,22 @@
     rr:predicateObjectMap [
     rr:predicate base:tiene_modelo;
     rr:objectMap [
-      rml:reference "MODELO"
+      rml:reference "MODELO";
+      rr:datatype xsd:string
       ]
   ];
     rr:predicateObjectMap [
     rr:predicate base:tiene_nombre-numero-via;
     rr:objectMap [
-      rml:reference "NOMBRE-VIA"
+      rml:reference "NOMBRE-VIA";
+      rr:datatype xsd:string
       ]
   ];
     rr:predicateObjectMap [
     rr:predicate base:tiene_clase-vial;
     rr:objectMap [
-      rml:reference "CLASE-VIAL"
+      rml:reference "CLASE-VIAL";
+      rr:datatype xsd:string
       ]
   ];
 
