@@ -132,10 +132,10 @@ q6= prepareQuery(
     '''
     SELECT ?nombre ?id
     WHERE {
-  	  ?loc1 base:tiene_distrito "CHAMARTIN".
-  	  ?loc1 base:tiene_barrio "NUEVA ESPAÑA".
-	    ?polideportivo base:se_encuentra_en ?barrio.
-	    ?aparcabicis base:se_encuentra_en ?barrio.
+  	  ?loc base:tiene_distrito "CHAMARTIN".
+  	  ?loc base:tiene_barrio "NUEVA ESPAÑA".
+	    ?polideportivo base:se_encuentra_en ?loc.
+	    ?aparcabicis base:se_encuentra_en ?loc.
  	    ?aparcabicis base:tiene_id ?id.
   	  ?polideportivo base:tiene_nombre ?nombre.
     }
