@@ -47,14 +47,6 @@
       rml:reference "DISTRITO";
       rr:datatype xsd:string
       ]
-  ];
-
-    rr:predicateObjectMap [
-    rr:predicateMap[ rr:constant owl:same_as; rr:termType rr:IRI ];
-    rr:objectMap [
-      rml:reference "same_as_wikidata_distrito";
-      rr:termType rr:IRI
-      ]
   ].
 
 <#MapInstalacionesDeportivas> a rr:TriplesMap;
