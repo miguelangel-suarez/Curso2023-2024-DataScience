@@ -1,4 +1,4 @@
- @prefix base: <http://deportesMadrid/ontology#> .
+@prefix base: <http://deportesMadrid/ontology#> .
 @prefix mod: <https://w3id.org/mod#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -9,7 +9,7 @@ base: a owl:Ontology ;
 base:se_encuentra_en a owl:ObjectProperty ;
     rdfs:label "se_encuentra_en" ;
     rdfs:domain base:aparcabicis,
-        base:polideportivo ;
+        base:instalaciones-deportivas ;
     rdfs:range base:ubicacion .
 
 base:tiene_barrio a owl:DatatypeProperty ;
@@ -29,7 +29,7 @@ base:tiene_distrito a owl:DatatypeProperty ;
 
 base:tiene_equipamiento a owl:DatatypeProperty ;
     rdfs:label "tiene_equipamiento" ;
-    rdfs:domain base:polideportivo .
+    rdfs:domain base:instalaciones-deportivas .
 
 base:tiene_estado a owl:DatatypeProperty ;
     rdfs:label "tiene_estado" ;
@@ -49,26 +49,26 @@ base:tiene_modelo a owl:DatatypeProperty ;
 
 base:tiene_nombre a owl:DatatypeProperty ;
     rdfs:label "tiene_nombre" ;
-    rdfs:domain base:polideportivo .
+    rdfs:domain base:instalaciones-deportivas .
 
 base:tiene_nombre-numero-via a owl:DatatypeProperty ;
     rdfs:label "tiene_nombre-numero-via" .
 
 base:tiene_pk a owl:DatatypeProperty ;
     rdfs:label "tiene_pk" ;
-    rdfs:domain base:polideportivo .
+    rdfs:domain base:instalaciones-deportivas .
 
 base:tiene_tipo a owl:DatatypeProperty ;
     rdfs:label "tiene_tipo" ;
-    rdfs:domain base:polideportivo .
+    rdfs:domain base:instalaciones-deportivas .
 
 base:tiene_transporte a owl:DatatypeProperty ;
     rdfs:label "tiene_transporte" ;
-    rdfs:domain base:polideportivo .
+    rdfs:domain base:instalaciones-deportivas .
 
 base:tiene_url a owl:DatatypeProperty ;
     rdfs:label "tiene_url" ;
-    rdfs:domain base:polideportivo .
+    rdfs:domain base:instalaciones-deportivas .
 
 base:ubicacion a owl:Class ;
     rdfs:label "ubicacion" .
@@ -76,6 +76,6 @@ base:ubicacion a owl:Class ;
 base:aparcabicis a owl:Class ;
     rdfs:label "aparcabicis" .
 
-base:polideportivo a owl:Class ;
-    rdfs:label "polideportivo" .
+base:instalaciones-deportivas a owl:Class ;
+    rdfs:label "instalaciones-deportivas" .
 
