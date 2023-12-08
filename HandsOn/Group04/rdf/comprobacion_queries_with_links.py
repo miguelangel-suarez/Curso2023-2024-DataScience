@@ -20,9 +20,9 @@ q1= prepareQuery(
     WHERE {
 	    ?loc base:tiene_codigo-postal 28024.
 	    ?polideportivo base:se_encuentra_en ?loc.
-    	?polideportivo base:tiene_nombre ?nombre_pol .
+    	    ?polideportivo base:tiene_nombre ?nombre_pol .
 	    ?aparcabicis base:se_encuentra_en ?loc.
-    	?aparcabicis base:tiene_id ?id_apar.
+    	    ?aparcabicis base:tiene_id ?id_apar.
     }
     GROUP BY ?nombre_pol
     LIMIT 20
@@ -40,12 +40,12 @@ q2= prepareQuery(
     WHERE {
 	    ?loc base:tiene_distrito "Villa de Vallecas".
 	    ?polideportivo base:se_encuentra_en ?loc.
-        ?polideportivo base:tiene_nombre-numero-via ?via.
-    	?polideportivo base:tiene_nombre ?nombre.
+            ?polideportivo base:tiene_nombre-numero-via ?via.
+    	    ?polideportivo base:tiene_nombre ?nombre.
 	    ?aparcabicis base:se_encuentra_en ?loc.
-        ?aparcabicis base:tiene_nombre-numero-via ?via.
-    	?aparcabicis base:tiene_modelo 'MU-51'.
-    	?aparcabicis base:tiene_id ?id_apar.
+            ?aparcabicis base:tiene_nombre-numero-via ?via.
+    	    ?aparcabicis base:tiene_modelo 'MU-51'.
+    	    ?aparcabicis base:tiene_id ?id_apar.
     }
     GROUP BY ?nombre
     LIMIT 20
@@ -107,11 +107,11 @@ q5= prepareQuery(
     WHERE {
 	  ?aparcabicis base:tiene_fecha-instalacion '2021-09-21'.
   	  ?aparcabicis base:tiene_estado ?estado.
-      ?aparcabicis base:se_encuentra_en ?loc.
-      ?loc base:tiene_barrio ?barrio.
-      ?loc owl:same_as ?link_barrio.
-      ?polideportivo base:se_encuentra_en ?loc.
-      ?polideportivo base:tiene_url ?url.
+          ?aparcabicis base:se_encuentra_en ?loc.
+          ?loc base:tiene_barrio ?barrio.
+          ?loc owl:same_as ?link_barrio.
+          ?polideportivo base:se_encuentra_en ?loc.
+          ?polideportivo base:tiene_url ?url.
     }
     GROUP BY ?url
     LIMIT 20
@@ -127,7 +127,7 @@ q6= prepareQuery(
     '''
     SELECT ?nombre ?id
     WHERE {
-        ?loc base:tiene_distrito "Chamartín".
+            ?loc base:tiene_distrito "Chamartín".
   	    ?loc owl:same_as <http://wikidata.org/entity/Q10338128>.
 	    ?polideportivo base:se_encuentra_en ?loc.
 	    ?aparcabicis base:se_encuentra_en ?loc.
