@@ -11,7 +11,7 @@ g.namespace_manager.bind('rdf', Namespace("http://www.w3.org/1999/02/22-rdf-synt
 base=Namespace("http://deportesMadrid/ontology#")
 owl=Namespace("http://www.w3.org/2002/07/owl#")
 
-g.parse("./web/rdf/output_tripletas-with-links.nt", format="nt")
+g.parse("./rdf/output_tripletas-with-links.nt", format="nt")
 
 # 1. Dado el código postal 28024 devolver los nombres de los polideportivos (que sean distintos) y los id de los aparcabicis de ese código postal.
 q1= prepareQuery(
